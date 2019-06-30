@@ -103,7 +103,7 @@
 <meta property="og:description" content="1.1 统计学习 定义：统计学习（statistical learning）是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。统计学习也称为统计机器学习（statistical machine learning）。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/06/28/5d158c3b1400839934.png">
-<meta property="og:updated_time" content="2019-06-30T09:52:15.459Z">
+<meta property="og:updated_time" content="2019-06-30T10:08:43.082Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《统计学习方法》》——概论">
 <meta name="twitter:description" content="1.1 统计学习 定义：统计学习（statistical learning）是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。统计学习也称为统计机器学习（statistical machine learning）。">
@@ -392,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2019-06-30 17:23:10 / 修改时间：17:52:15" itemprop="dateCreated datePublished" datetime="2019-06-30T17:23:10+08:00">2019-06-30</time>
+              <time title="创建时间：2019-06-30 17:23:10 / 修改时间：18:08:43" itemprop="dateCreated datePublished" datetime="2019-06-30T17:23:10+08:00">2019-06-30</time>
             </span>
           
 
@@ -634,8 +634,7 @@ R_{\mathrm{exp}}(\hat{f})=E_{P}[L(Y, \hat{f}(X))]=\int_{\mathcal{X} \times \math
 <li>它是样本容量的函数，当样本容量增加时，泛化上界趋于0；</li>
 <li>它是假设空间容量（capacity）的函数，假设空间容量越大，模型就越难学，泛化误差上界就越大。</li>
 </ul>
-<font color="red">**关于对二类分类问题，泛化误差上界不等式的证明，即证明：**</font>
-
+<p><strong><font color="red">关于对二类分类问题，泛化误差上界不等式的证明，即证明：</font></strong></p>
 <p>​        当假设空间是有限个函数的集合$\mathcal{F}＝{f_1，f_2,…,f_d}$时，对任意一个函数 $f \in \mathcal{F}$，至少以概率$1-\delta$，以下不等式成立：</p>
 <script type="math/tex; mode=display">
 R(f) \leqslant \hat{R}(f)+\varepsilon(d, N, \delta)</script><p>其中，</p>
@@ -654,7 +653,7 @@ P(R(f)-\hat{R}(f) \geqslant \varepsilon) &= P(E[\sum_{i=1}^{N}L\left(y_i,f(x_i) 
 \end{aligned}</script><p>由于$\mathcal{F}=\{ f_1,f_2,…,f_d \}$是一个有限集合，故</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
-P(\exist f \in \mathcal{F}:R(f)-\hat{R}(f) \geqslant \varepsilon) &=P\left(\bigcup_{f \in \mathcal{F}}\{R(f)-\hat{R}(f) \geqslant \varepsilon\}\right) \\
+P(\exists f \in \mathcal{F}:R(f)-\hat{R}(f) \geqslant \varepsilon) &=P\left(\bigcup_{f \in \mathcal{F}}\{R(f)-\hat{R}(f) \geqslant \varepsilon\}\right) \\
 & \leqslant \sum_{f \in \mathcal{F}}P(R(f)-\hat{R}(f) \geqslant \varepsilon) \\
 & \leqslant d  \exp(-2N\varepsilon^2)
 \end{aligned}</script><p>或者等价的，对任意$f \in \mathcal{F}$，有</p>
@@ -713,17 +712,18 @@ F_{1}=\frac{2 T P}{2 T P+F P+F N}</script><p>精确率和召回率都高时，$F
 <tbody>
 <tr>
 <td style="text-align:center">模型</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
 <td style="text-align:center">策略</td>
-<td style="text-align:center"></td>
-<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
 </tr>
 <tr>
 <td style="text-align:center">算法</td>
-<td style="text-align:center"></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
 </tr>
 </tbody>
 </table>
@@ -735,9 +735,9 @@ F_{1}=\frac{2 T P}{2 T P+F P+F N}</script><p>精确率和召回率都高时，$F
 <script type="math/tex; mode=display">
 L(\theta) = \prod_{i=1}^{n}P(A_i)= C_{n}^{k}\theta^k(1-\theta)^{n-k} \\</script><p>​                然后取对数得到对数似然函数：</p>
 <script type="math/tex; mode=display">
-ln(L(\theta)) = lnC_{n}^{k} + k \cdot ln\theta + (n-k) \cdot ln(1-\theta)</script><p>​                然后在上式两边对 $\theta$ 求导可得</p>
+\ln(L(\theta)) = \ln C_{n}^{k} + k \cdot \ln\theta + (n-k) \cdot \ln(1-\theta)</script><p>​                然后在上式两边对 $\theta$ 求导可得</p>
 <script type="math/tex; mode=display">
-\frac{\part ln(L(\theta))}{\part \theta} = \frac{k}{\theta} - \frac{n-k}{1-\theta}</script><p>​                令上式等于 0 ， 可得</p>
+\frac{\partial \ln(L(\theta))}{\partial \theta} = \frac{k}{\theta} - \frac{n-k}{1-\theta}</script><p>​                令上式等于 0 ， 可得</p>
 <script type="math/tex; mode=display">
 \theta = \frac{k}{n}</script><p>​                <strong>贝叶斯估计</strong></p>
 <p>​                todo</p>
@@ -756,8 +756,8 @@ R_{\mathrm{emp}}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i}, f\left(x_{i}\right)
 <script type="math/tex; mode=display">
 L(\theta) = \prod_{i=1}^{N} P_{\theta}\left(y_{i} | x_{i}\right)</script><p>​                    所以极大似然估计为：</p>
 <script type="math/tex; mode=display">
-\hat{\theta}=arg \max_{P\in \mathcal{F}}  \sum_{i=1}^{N}\log P_{\theta}\left(y_{i} | x_{i}\right)</script><pre><code>                 即
-</code></pre><script type="math/tex; mode=display">
+\hat{\theta}=arg \max_{P\in \mathcal{F}}  \sum_{i=1}^{N}\log P_{\theta}\left(y_{i} | x_{i}\right)</script><p>等价于：</p>
+<script type="math/tex; mode=display">
 \hat{\theta}=arg \min_{P\in \mathcal{F}}  \sum_{i=1}^{N}-\log P_{\theta}\left(y_{i} | x_{i}\right)</script><p>​                因此证得模型是条件概率分布，当损失函数是对数损失函数时，经验风险最小化等价于极大似然估计。</p>
 
       
