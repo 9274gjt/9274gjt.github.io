@@ -94,18 +94,18 @@
 
 
 
-  <meta name="description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。  示例123456789101112131415161718window.color = &apos;red&apos;;var o = new Object();o.color = &apos;blue&apos;;function sayColor()&amp;#1">
+  <meta name="description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。">
 <meta name="keywords" content="JavaScript">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript中的apply()和call()--下">
 <meta property="og:url" content="http://yoursite.com/2018/06/16/JavaScript中的apply-和call-下/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。  示例123456789101112131415161718window.color = &apos;red&apos;;var o = new Object();o.color = &apos;blue&apos;;function sayColor()&amp;#1">
+<meta property="og:description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-06T09:14:58.000Z">
+<meta property="og:updated_time" content="2019-06-30T03:03:51.553Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript中的apply()和call()--下">
-<meta name="twitter:description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。  示例123456789101112131415161718window.color = &apos;red&apos;;var o = new Object();o.color = &apos;blue&apos;;function sayColor()&amp;#1">
+<meta name="twitter:description" content="上篇中介绍到 call() 和 apply() 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。">
 
 
 
@@ -405,7 +405,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-06 17:14:58" itemprop="dateModified" datetime="2019-01-06T17:14:58+08:00">2019-01-06</time>
+                <time title="修改时间：2019-06-30 11:03:51" itemprop="dateModified" datetime="2019-06-30T11:03:51+08:00">2019-06-30</time>
               </span>
             
           
@@ -460,6 +460,7 @@
         <blockquote>
 <p>上篇中介绍到 <em>call()</em> 和 <em>apply()</em> 的基本使用方法，可以用来传递参数；但它们更重要的作用是在于能够扩充函数赖以运行的作用域，使得函数在不同作用域下拥有不同的功能。</p>
 </blockquote>
+<a id="more"></a>
 <h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.color = <span class="string">'red'</span>;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</span><br><span class="line">o.color = <span class="string">'blue'</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sayColor</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    alert(<span class="keyword">this</span>.color);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">sayColor();     <span class="comment">//red</span></span><br><span class="line"></span><br><span class="line">sayColor.apply(<span class="keyword">this</span>);       <span class="comment">//red</span></span><br><span class="line">sayColor.apply(<span class="built_in">window</span>);     <span class="comment">//red</span></span><br><span class="line">sayColor.apply(o);      <span class="comment">//blue</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sayColor.call(<span class="keyword">this</span>);        <span class="comment">//red</span></span><br><span class="line">sayColor.call(<span class="built_in">window</span>);      <span class="comment">//red</span></span><br><span class="line">sayColor.call(o);       <span class="comment">//blue</span></span><br></pre></td></tr></table></figure>
 <h3 id="解读"><a href="#解读" class="headerlink" title="解读"></a>解读</h3><blockquote>
 <p>上例中 <em>sayColor()</em> 作为全局函数定义的，所以当在全局作用域中调用它时，会显示 “red”。而 <code>sayColor.apply(this)</code> 和 <code>sayColor.apply(window)</code> ，则是两种显示地在全局作用域中调用函数的方式，因此结果显示 “red”。当运行<code>sayColor.apply(o)</code>时，函数的执行环境发生改变，此时函数体内的 this 对象指向了 o ，于是结果显示地是 “blue”。</p>
