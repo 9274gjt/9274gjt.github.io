@@ -103,7 +103,7 @@
 <meta property="og:description" content="1.1 统计学习 定义：统计学习（statistical learning）是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。统计学习也称为统计机器学习（statistical machine learning）。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.loli.net/2019/06/28/5d158c3b1400839934.png">
-<meta property="og:updated_time" content="2019-06-30T09:24:52.303Z">
+<meta property="og:updated_time" content="2019-06-30T09:52:15.459Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《统计学习方法》》——概论">
 <meta name="twitter:description" content="1.1 统计学习 定义：统计学习（statistical learning）是关于计算机基于数据构建概率统计模型并运用模型对数据进行预测与分析的一门学科。统计学习也称为统计机器学习（statistical machine learning）。">
@@ -392,7 +392,7 @@
                 
               
 
-              <time title="创建时间：2019-06-30 17:23:10 / 修改时间：17:24:52" itemprop="dateCreated datePublished" datetime="2019-06-30T17:23:10+08:00">2019-06-30</time>
+              <time title="创建时间：2019-06-30 17:23:10 / 修改时间：17:52:15" itemprop="dateCreated datePublished" datetime="2019-06-30T17:23:10+08:00">2019-06-30</time>
             </span>
           
 
@@ -579,7 +579,7 @@ R_{\mathrm{emp}}(f)=\frac{1}{N} \sum_{i=1}^{N} L\left(y_{i}, f\left(x_{i}\right)
 </li>
 </ul>
 <p>​        </p>
-<p>​        根据大数定律，当样本容量N趋于无穷时，经验风险$R<em>{emp}f$趋于期望风险$R</em>{exp}f$。但是，由于现实中训练样本数目有限，甚至很小，所以用经验风险估计期望风险常常并不理想，要对经验风险进行一定的<strong>矫正</strong>。这就关系到监督学习的两个基本策略：<strong>经验风险最小化和结构风险最小化。</strong></p>
+<p>​        根据大数定律，当样本容量N趋于无穷时，经验风险$R_{emp}f$趋于期望风险$R_{exp}f$。但是，由于现实中训练样本数目有限，甚至很小，所以用经验风险估计期望风险常常并不理想，要对经验风险进行一定的<strong>矫正</strong>。这就关系到监督学习的两个基本策略：<strong>经验风险最小化和结构风险最小化。</strong></p>
 <ul>
 <li><p><strong>经验风险最小化（empirical risk minimization，ERM）</strong>：按照经验风险最小化求最优模型就是求解最优化问题；</p>
 <blockquote>
@@ -641,7 +641,7 @@ R_{\mathrm{exp}}(\hat{f})=E_{P}[L(Y, \hat{f}(X))]=\int_{\mathcal{X} \times \math
 R(f) \leqslant \hat{R}(f)+\varepsilon(d, N, \delta)</script><p>其中，</p>
 <script type="math/tex; mode=display">
 \varepsilon(d, N, \delta)=\sqrt{\frac{1}{2 N}\left(\log d+\log \frac{1}{\delta}\right)}</script><p>需要用到Hoeffding不等式：</p>
-<p>​        设是$S<em>n = \sum</em>{i-1}^{n}X_i$是独立随机变量$X_1,X_2,…,X_n$之和，$X_i \in [a_i，b_i ]$，则对任意$t &gt; 0$，以下不等式成立：</p>
+<p>​        设是$S_n = \sum_{i-1}^{n}X_i$是独立随机变量$X_1,X_2,…,X_n$之和，$X_i \in [a_i，b_i ]$，则对任意$t &gt; 0$，以下不等式成立：</p>
 <script type="math/tex; mode=display">
 \begin{array}{l}{P\left(S_{n}-E S_{n} \geqslant t\right) \leqslant \exp \left(\frac{-2 t^{2}}{\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)^{2}}\right)} \\ {P\left(E S_{n}-S_{n} \geqslant t\right) \leqslant \exp \left(\frac{-2 t^{2}}{\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)^{2}}\right)}\end{array}</script><p><strong>证明：</strong></p>
 <p>​        ∵ 对于任意函数$f \in \mathcal{F}$，$\hat{R}(f)$是 N 个独立的随机变量 $L(Y,f(X))$的样本均值，$R(f)$是随机变量$L(Y,f(X))$的期望值。如果损失函数取值于区间$[0,1]$，即对所有$i$，$[a_i，b_i ]＝[0,1]$，那么由Hoeffding不等式可得：</p>
@@ -651,7 +651,7 @@ P(R(f)-\hat{R}(f) \geqslant \varepsilon) &= P(E[\sum_{i=1}^{N}L\left(y_i,f(x_i) 
 & \leqslant \exp \left(\frac{-2 (N \cdot \varepsilon)^{2}}{\sum_{i=1}^{n}\left(b_{i}-a_{i}\right)^{2}}\right)\\ 
 & = \exp \left(\frac{-2 (N \cdot \varepsilon)^{2}}{N}\right)\\
 & = exp \left( -2N\varepsilon^2\right)
-\end{aligned}</script><p>由于$\mathcal{F}={ f_1,f_2,…,f_d }$是一个有限集合，故</p>
+\end{aligned}</script><p>由于$\mathcal{F}=\{ f_1,f_2,…,f_d \}$是一个有限集合，故</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 P(\exist f \in \mathcal{F}:R(f)-\hat{R}(f) \geqslant \varepsilon) &=P\left(\bigcup_{f \in \mathcal{F}}\{R(f)-\hat{R}(f) \geqslant \varepsilon\}\right) \\
@@ -728,8 +728,8 @@ F_{1}=\frac{2 T P}{2 T P+F P+F N}</script><p>精确率和召回率都高时，$F
 </tbody>
 </table>
 </div>
-<p>​                定义随机变量$A$为一次伯努利实验的结果，可知$A$的取值为${0,1}$；</p>
-<p>​                设$P{A = 1} = \theta$，则$P{A = 0} = 1- \theta$</p>
+<p>​                定义随机变量$A$为一次伯努利实验的结果，可知$A$的取值为$\{0,1\}$；</p>
+<p>​                设$P\{A = 1\} = \theta$，则$P\{A = 0\} = 1- \theta$</p>
 <p>​                <strong>极大似然估计</strong></p>
 <p>​                首先得到似然函数：</p>
 <script type="math/tex; mode=display">
@@ -742,7 +742,7 @@ ln(L(\theta)) = lnC_{n}^{k} + k \cdot ln\theta + (n-k) \cdot ln(1-\theta)</scrip
 \theta = \frac{k}{n}</script><p>​                <strong>贝叶斯估计</strong></p>
 <p>​                todo</p>
 <p>​        <strong>1.2 </strong>    通过经验风险最小化推导极大似然估计。证明模型是条件概率分布，当损失函数是对数损失函数时，经验风险最小化等价于极大似然估计。</p>
-<p>​        <strong>证明：</strong> 当模型是条件概率分布，即$\mathcal{F}=\left{P\left|P_{\theta}(Y | X), \theta \in \mathbf{R}^{n}\right}\right.$；</p>
+<p>​        <strong>证明：</strong> 当模型是条件概率分布，即$\mathcal{F}=\left\{P\left|P_{\theta}(Y | X), \theta \in \mathbf{R}^{n}\right\}\right.$；</p>
 <p>​                    损失函数是对数损失函数时，即$L(Y, P(Y | X))=-\log P(Y | X)$;</p>
 <p>​                    则<strong>经验风险</strong>如下：</p>
 <script type="math/tex; mode=display">
@@ -1465,6 +1465,46 @@ L(\theta) = \prod_{i=1}^{N} P_{\theta}\left(y_{i} | x_{i}\right)</script><p>​ 
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
