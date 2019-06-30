@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.gongjintao.com/2019/06/30/%E6%A6%82%E8%AE%BA/</loc>
+    
+    <lastmod>2019-06-30T09:04:30.845Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.gongjintao.com/2018/08/10/CCF%E8%AF%95%E9%A2%98%E5%BA%93201403-2%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E7%AA%97%E5%8F%A3/</loc>
     
     <lastmod>2019-06-30T04:28:59.398Z</lastmod>
@@ -159,13 +166,6 @@
     <loc>http://blog.gongjintao.com/2019/06/30/javascript%E4%B8%AD%E7%9A%84%E6%95%B0%E7%BB%84%E8%BF%AD%E4%BB%A3%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/</loc>
     
     <lastmod>2019-06-30T02:57:49.502Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.gongjintao.com/2018/09/01/%E6%B5%8B%E8%AF%95/</loc>
-    
-    <lastmod>2019-06-30T02:57:29.745Z</lastmod>
     
   </url>
   
