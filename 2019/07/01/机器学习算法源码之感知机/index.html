@@ -98,18 +98,21 @@
 
 
 
-  <meta name="description" content="问题描述 　　体育老师小明要将自己班上的学生按顺序排队。他首先让学生按学号从小到大的顺序排成一排，学号小的排在前面，然后进行多次调整。一次调整小明可能让一位同学出队，向前或者向后移动一段距离后再插入队列。">
-<meta name="keywords" content="C&#x2F;C++">
+  <meta name="description" content="感知机算法的原始形式：123456789101112131415161718192021222324252627282930313233343536373839404142import numpy as npimport matplotlib.pyplot as plt# 生成数据集data = np.asarray([[3, 3], [4, 3], [1, 1]])label = np.asar">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCF认证题库201703-2————学生排队">
-<meta property="og:url" content="http://blog.gongjintao.com/2018/07/17/CCF认证题库201703-2————学生排队/index.html">
+<meta property="og:title" content="机器学习算法源码之感知机">
+<meta property="og:url" content="http://blog.gongjintao.com/2019/07/01/机器学习算法源码之感知机/index.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
-<meta property="og:description" content="问题描述 　　体育老师小明要将自己班上的学生按顺序排队。他首先让学生按学号从小到大的顺序排成一排，学号小的排在前面，然后进行多次调整。一次调整小明可能让一位同学出队，向前或者向后移动一段距离后再插入队列。">
+<meta property="og:description" content="感知机算法的原始形式：123456789101112131415161718192021222324252627282930313233343536373839404142import numpy as npimport matplotlib.pyplot as plt# 生成数据集data = np.asarray([[3, 3], [4, 3], [1, 1]])label = np.asar">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-30T02:52:12.396Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005XIOOuly1g4kqqhjuk7j30ae070dfs.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/005XIOOuly1g4kqqhnvxzj30ae070dfs.jpg">
+<meta property="og:updated_time" content="2019-07-01T15:13:00.346Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCF认证题库201703-2————学生排队">
-<meta name="twitter:description" content="问题描述 　　体育老师小明要将自己班上的学生按顺序排队。他首先让学生按学号从小到大的顺序排成一排，学号小的排在前面，然后进行多次调整。一次调整小明可能让一位同学出队，向前或者向后移动一段距离后再插入队列。">
+<meta name="twitter:title" content="机器学习算法源码之感知机">
+<meta name="twitter:description" content="感知机算法的原始形式：123456789101112131415161718192021222324252627282930313233343536373839404142import numpy as npimport matplotlib.pyplot as plt# 生成数据集data = np.asarray([[3, 3], [4, 3], [1, 1]])label = np.asar">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/005XIOOuly1g4kqqhjuk7j30ae070dfs.jpg">
 
 
 
@@ -119,7 +122,7 @@
 
   
   
-  <link rel="canonical" href="http://blog.gongjintao.com/2018/07/17/CCF认证题库201703-2————学生排队/">
+  <link rel="canonical" href="http://blog.gongjintao.com/2019/07/01/机器学习算法源码之感知机/">
 
 
 
@@ -129,7 +132,7 @@
   };
 </script>
 
-  <title>CCF认证题库201703-2————学生排队 | GongJintao' Blog</title>
+  <title>机器学习算法源码之感知机 | GongJintao' Blog</title>
   
 
 
@@ -353,7 +356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.gongjintao.com/2018/07/17/CCF认证题库201703-2————学生排队/">
+    <link itemprop="mainEntityOfPage" href="http://blog.gongjintao.com/2019/07/01/机器学习算法源码之感知机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -370,7 +373,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CCF认证题库201703-2————学生排队
+          <h1 class="post-title" itemprop="name headline">机器学习算法源码之感知机
 
               
             
@@ -396,23 +399,13 @@
                 
               
 
-              <time title="创建时间：2018-07-17 19:32:44" itemprop="dateCreated datePublished" datetime="2018-07-17T19:32:44+08:00">2018-07-17</time>
+              <time title="创建时间：2019-07-01 23:09:19 / 修改时间：23:13:00" itemprop="dateCreated datePublished" datetime="2019-07-01T23:09:19+08:00">2019-07-01</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-30 10:52:12" itemprop="dateModified" datetime="2019-06-30T10:52:12+08:00">2019-06-30</time>
-              </span>
             
           
 
@@ -425,7 +418,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CCF试题库/" itemprop="url" rel="index"><span itemprop="name">CCF试题库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
@@ -443,8 +436,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/17/CCF认证题库201703-2————学生排队/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/17/CCF认证题库201703-2————学生排队/" itemprop="commentCount"></span>
+                <a href="/2019/07/01/机器学习算法源码之感知机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/01/机器学习算法源码之感知机/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -475,23 +468,13 @@
       
 
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>　　体育老师小明要将自己班上的学生按顺序排队。他首先让学生按学号从小到大的顺序排成一排，学号小的排在前面，然后进行多次调整。一次调整小明可能让一位同学出队，向前或者向后移动一段距离后再插入队列。<a id="more"></a><br>　　例如，下面给出了一组移动的例子，例子中学生的人数为8人。<br>　　0）初始队列中学生的学号依次为1, 2, 3, 4, 5, 6, 7, 8；<br>　　1）第一次调整，命令为“3号同学向后移动2”，表示3号同学出队，向后移动2名同学的距离，再插入到队列中，新队列中学生的学号依次为1, 2, 4, 5, 3, 6, 7, 8；<br>　　2）第二次调整，命令为“8号同学向前移动3”，表示8号同学出队，向前移动3名同学的距离，再插入到队列中，新队列中学生的学号依次为1, 2, 4, 5, 8, 3, 6, 7；<br>　　3）第三次调整，命令为“3号同学向前移动2”，表示3号同学出队，向前移动2名同学的距离，再插入到队列中，新队列中学生的学号依次为1, 2, 4, 3, 5, 8, 6, 7。<br>　　小明记录了所有调整的过程，请问，最终从前向后所有学生的学号依次是多少？<br>　　请特别注意，上述移动过程中所涉及的号码指的是学号，而不是在队伍中的位置。在向后移动时，移动的距离不超过对应同学后面的人数，如果向后移动的距离正好等于对应同学后面的人数则该同学会移动到队列的最后面。在向前移动时，移动的距离不超过对应同学前面的人数，如果向前移动的距离正好等于对应同学前面的人数则该同学会移动到队列的最前面。</p>
-</blockquote>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
-<p>　　输入的第一行包含一个整数n，表示学生的数量，学生的学号由1到n编号。<br>　　第二行包含一个整数m，表示调整的次数。<br>　　接下来m行，每行两个整数p, q，如果q为正，表示学号为p的同学向后移动q，如果q为负，表示学号为p的同学向前移动-q。<br>输出格式<br>　　输出一行，包含n个整数，相邻两个整数之间由一个空格分隔，表示最终从前向后所有学生的学号。</p>
-</blockquote>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><blockquote>
-<p>8<br>3<br>3 2<br>8 -3<br>3 -2</p>
-</blockquote>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><blockquote>
-<p>1 2 4 3 5 8 6 7<br>评测用例规模与约定<br>对于所有评测用例，1 ≤ n ≤ 1000，1 ≤ m ≤ 1000，所有移动均合法。</p>
-</blockquote>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><blockquote>
-<p>题目较为简单，只是将数组数据进行前后移动<br>首先获取的同学p所在队伍中的位置pos，构造函数<code>int position(int a[],int p,int len){}</code>,其中a表示队伍数组，p表示学号，len表示队伍长度;<br>然后进行数组中数据的移动，构造函数<code>int *change(int a[],int q,int pos){}</code>,其中a表示队伍数组，q表示前后移动的位数，pos表示同学p所在的位置。</p>
-</blockquote>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">position</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> p,<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]==p) <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> *<span class="title">change</span><span class="params">(<span class="keyword">int</span> a[],<span class="keyword">int</span> q,<span class="keyword">int</span> pos)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i,temp;</span><br><span class="line">	temp=a[pos];</span><br><span class="line">	<span class="keyword">if</span>(q&gt;<span class="number">0</span>)&#123;		</span><br><span class="line">		<span class="keyword">for</span>(i=pos;i&lt;pos+q;i++)&#123;</span><br><span class="line">			a[i]=a[i+<span class="number">1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;		</span><br><span class="line">		<span class="keyword">for</span>(i=pos;i&gt;pos+q;i--)&#123;</span><br><span class="line">			a[i]=a[i<span class="number">-1</span>];</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	a[pos+q]=temp;</span><br><span class="line">	<span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> n,m,i,p,q,len;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">int</span> *a;</span><br><span class="line">    a = (<span class="keyword">int</span>*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(<span class="keyword">int</span>)*n);</span><br><span class="line">    len=n;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">        a[i]=i+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        <span class="built_in">cin</span>&gt;&gt;p&gt;&gt;q;</span><br><span class="line">        <span class="keyword">int</span> pos;</span><br><span class="line">        pos=position(a,p,len);</span><br><span class="line">        a = change(a,q,pos);</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">	        <span class="built_in">cout</span>&lt;&lt;a[i]&lt;&lt;<span class="string">" "</span>;</span><br><span class="line">	    &#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://blog.gongjintao.com/2018/07/17/CCF认证题库201703-2————学生排队/">http://blog.gongjintao.com/2018/07/17/CCF认证题库201703-2————学生排队/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+        <h2 id="感知机算法的原始形式："><a href="#感知机算法的原始形式：" class="headerlink" title="感知机算法的原始形式："></a>感知机算法的原始形式：</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成数据集</span></span><br><span class="line">data = np.asarray([[<span class="number">3</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line">label = np.asarray([<span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化参数</span></span><br><span class="line">w = np.asarray([<span class="number">0</span>, <span class="number">0</span>])</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line">learning_rate = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 误分类个数为数据集的长度</span></span><br><span class="line">N = len(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> N &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        <span class="comment"># 选取数据</span></span><br><span class="line">        sample = data[i]</span><br><span class="line">        <span class="comment"># 计算损失函数</span></span><br><span class="line">        loss = label[i] * (w.dot(sample.transpose()) + b)</span><br><span class="line">        <span class="keyword">if</span> loss &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># 更新参数</span></span><br><span class="line">            w = w + learning_rate * label[i] * sample</span><br><span class="line">            b = b + learning_rate * label[i]</span><br><span class="line">            N = N <span class="keyword">if</span> N==len(data) <span class="keyword">else</span> N+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 误分类个数减1</span></span><br><span class="line">            N -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(w,b)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">plt.scatter(data[:<span class="number">2</span>, <span class="number">0</span>],data[:<span class="number">2</span>, <span class="number">1</span>], marker=<span class="string">'+'</span>)</span><br><span class="line">plt.scatter(data[<span class="number">-1</span>, <span class="number">0</span>],data[<span class="number">-1</span>, <span class="number">1</span>])</span><br><span class="line">line_x = np.arange(<span class="number">0</span>,<span class="number">5</span>,<span class="number">0.01</span>)</span><br><span class="line">line_y = -(w[<span class="number">0</span>] * line_x + b) / w[<span class="number">1</span>]</span><br><span class="line">plt.plot(line_x, line_y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[2 2] 0</span><br><span class="line">[1 1] -1</span><br><span class="line">[0 0] -2</span><br><span class="line">[2 2] -2</span><br><span class="line">[1 1] -3</span><br><span class="line">[1 1] -3</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/005XIOOuly1g4kqqhjuk7j30ae070dfs.jpg" alt="png"></p>
+<h2 id="感知机算法的对偶形式"><a href="#感知机算法的对偶形式" class="headerlink" title="感知机算法的对偶形式"></a>感知机算法的对偶形式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span>  np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输入数据集</span></span><br><span class="line">data = np.asarray([[<span class="number">3</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">3</span>], [<span class="number">1</span>, <span class="number">1</span>]])</span><br><span class="line">label = np.asarray([<span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化参数</span></span><br><span class="line">alpha = np.zeros(<span class="number">3</span>)</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line">learning_rate = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算Gram矩阵</span></span><br><span class="line">G = np.asarray([[x.dot(y) <span class="keyword">for</span> x <span class="keyword">in</span> data  ] <span class="keyword">for</span> y <span class="keyword">in</span> data])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 误分类个数为数据集的长度</span></span><br><span class="line">N = len(data)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> N &gt; <span class="number">0</span>:</span><br><span class="line">    <span class="keyword">for</span> i  <span class="keyword">in</span> range(len(data)):</span><br><span class="line">        sample = data[i]</span><br><span class="line">        loss = label[i]*(np.dot(alpha*label,G[:,i]) + b)</span><br><span class="line">        <span class="keyword">if</span> loss &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># 更新参数</span></span><br><span class="line">            alpha[i] = alpha[i] + learning_rate</span><br><span class="line">            b = b + learning_rate * label[i]</span><br><span class="line">            N = N <span class="keyword">if</span> N==len(data) <span class="keyword">else</span> N+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 误分类个数减1</span></span><br><span class="line">            N -= <span class="number">1</span></span><br><span class="line">    print(alpha,b)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 求出 w</span></span><br><span class="line">w = np.dot(data.T,alpha*label)</span><br><span class="line">print(w)</span><br><span class="line">    </span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.scatter(data[:<span class="number">2</span>, <span class="number">0</span>],data[:<span class="number">2</span>, <span class="number">1</span>], marker=<span class="string">'+'</span>)</span><br><span class="line">plt.scatter(data[<span class="number">-1</span>, <span class="number">0</span>],data[<span class="number">-1</span>, <span class="number">1</span>])</span><br><span class="line">line_x = np.arange(<span class="number">0</span>,<span class="number">5</span>,<span class="number">0.01</span>)</span><br><span class="line">line_y = -(w[<span class="number">0</span>] * line_x + b) / w[<span class="number">1</span>]</span><br><span class="line">plt.plot(line_x, line_y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[1. 0. 1.] 0</span><br><span class="line">[1. 0. 2.] -1</span><br><span class="line">[1. 0. 3.] -2</span><br><span class="line">[2. 0. 4.] -2</span><br><span class="line">[2. 0. 5.] -3</span><br><span class="line">[2. 0. 5.] -3</span><br><span class="line">[1. 1.]</span><br></pre></td></tr></table></figure>
+<p><img src="https://ws1.sinaimg.cn/large/005XIOOuly1g4kqqhnvxzj30ae070dfs.jpg" alt="png"></p>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://blog.gongjintao.com/2019/07/01/机器学习算法源码之感知机/">http://blog.gongjintao.com/2019/07/01/机器学习算法源码之感知机/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -518,7 +501,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
           
         </div>
       
@@ -531,8 +514,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/17/CCF认证题库201703-1————分蛋糕/" rel="next" title="CCF认证题库201703-1————分蛋糕">
-                <i class="fa fa-chevron-left"></i> CCF认证题库201703-1————分蛋糕
+              <a href="/2019/07/01/《统计学习方法》——感知机/" rel="next" title="《统计学习方法》——感知机">
+                <i class="fa fa-chevron-left"></i> 《统计学习方法》——感知机
               </a>
             
           </div>
@@ -540,10 +523,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/07/18/CCF认证题库201612-1————中间数/" rel="prev" title="CCF认证题库201612-1————中间数">
-                CCF认证题库201612-1————中间数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -717,7 +696,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码示例"><span class="nav-text">代码示例</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#声明：菜鸟拙见，大神勿喷"><span class="nav-text">(声明：菜鸟拙见，大神勿喷)</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机算法的原始形式："><span class="nav-text">感知机算法的原始形式：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机算法的对偶形式"><span class="nav-text">感知机算法的对偶形式</span></a></li></ol></div>
             
 
           </div>
