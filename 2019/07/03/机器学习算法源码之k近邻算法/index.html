@@ -102,20 +102,20 @@
 
 
 
-  <meta name="description" content="问题描述 　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在">
-<meta name="keywords" content="C&#x2F;C++">
+  <meta name="description" content="1. KD树实现KNN算法TODO  2. 用scikit-learn 实现KNN分类1234567891011121314151617181920212223242526from sklearn import neighborsimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.colors import Listed">
+<meta name="keywords" content="机器学习">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCF认证题库201409-2————画图">
-<meta property="og:url" content="http://blog.gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/index.html">
+<meta property="og:title" content="机器学习算法源码之k近邻算法">
+<meta property="og:url" content="http://blog.gongjintao.com/2019/07/03/机器学习算法源码之k近邻算法/index.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
-<meta property="og:description" content="问题描述 　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在">
+<meta property="og:description" content="1. KD树实现KNN算法TODO  2. 用scikit-learn 实现KNN分类1234567891011121314151617181920212223242526from sklearn import neighborsimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.colors import Listed">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://118.190.20.162/RequireFile.do?fid=qMtgAT3j">
-<meta property="og:updated_time" content="2019-06-30T02:54:40.471Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOuly1g4mp58i4mej30e809rmy9.jpg">
+<meta property="og:updated_time" content="2019-07-03T07:49:27.304Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCF认证题库201409-2————画图">
-<meta name="twitter:description" content="问题描述 　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在">
-<meta name="twitter:image" content="http://118.190.20.162/RequireFile.do?fid=qMtgAT3j">
+<meta name="twitter:title" content="机器学习算法源码之k近邻算法">
+<meta name="twitter:description" content="1. KD树实现KNN算法TODO  2. 用scikit-learn 实现KNN分类1234567891011121314151617181920212223242526from sklearn import neighborsimport numpy as npimport matplotlib.pyplot as pltfrom matplotlib.colors import Listed">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005XIOOuly1g4mp58i4mej30e809rmy9.jpg">
 
 
 
@@ -125,7 +125,7 @@
 
   
   
-  <link rel="canonical" href="http://blog.gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
+  <link rel="canonical" href="http://blog.gongjintao.com/2019/07/03/机器学习算法源码之k近邻算法/">
 
 
 
@@ -135,7 +135,7 @@
   };
 </script>
 
-  <title>CCF认证题库201409-2————画图 | GongJintao' Blog</title>
+  <title>机器学习算法源码之k近邻算法 | GongJintao' Blog</title>
   
 
 
@@ -359,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://blog.gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
+    <link itemprop="mainEntityOfPage" href="http://blog.gongjintao.com/2019/07/03/机器学习算法源码之k近邻算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -376,7 +376,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CCF认证题库201409-2————画图
+          <h1 class="post-title" itemprop="name headline">机器学习算法源码之k近邻算法
 
               
             
@@ -402,23 +402,13 @@
                 
               
 
-              <time title="创建时间：2018-07-29 19:47:25" itemprop="dateCreated datePublished" datetime="2018-07-29T19:47:25+08:00">2018-07-29</time>
+              <time title="创建时间：2019-07-03 15:44:29 / 修改时间：15:49:27" itemprop="dateCreated datePublished" datetime="2019-07-03T15:44:29+08:00">2019-07-03</time>
             </span>
           
 
           
             
 
-            
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-06-30 10:54:40" itemprop="dateModified" datetime="2019-06-30T10:54:40+08:00">2019-06-30</time>
-              </span>
             
           
 
@@ -431,7 +421,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CCF试题库/" itemprop="url" rel="index"><span itemprop="name">CCF试题库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/机器学习/" itemprop="url" rel="index"><span itemprop="name">机器学习</span></a></span>
 
                 
                 
@@ -449,8 +439,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/2018/07/29/CCF认证题库201409-2————画图/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/07/29/CCF认证题库201409-2————画图/" itemprop="commentCount"></span>
+                <a href="/2019/07/03/机器学习算法源码之k近邻算法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/03/机器学习算法源码之k近邻算法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -481,29 +471,25 @@
       
 
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。<br>　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在实际的涂色过程中，所有的矩形都涂成统一的颜色，图中显示不同颜色仅为说明方便。<a id="more"></a><br>      <img src="http://118.190.20.162/RequireFile.do?fid=qMtgAT3j" alt><br>　　给出所有要画的矩形，请问总共有多少个单位的面积被涂上颜色。</p>
-</blockquote>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
-<p>　　输入的第一行包含一个整数n，表示要画的矩形的个数。<br>　　接下来n行，每行4个非负整数，分别表示要画的矩形的左下角的横坐标与纵坐标，以及右上角的横坐标与纵坐标。</p>
-</blockquote>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
-<p>　　输出一个整数，表示有多少个单位的面积被涂上颜色。</p>
-</blockquote>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><blockquote>
-<p>2<br>1 1 4 4<br>2 3 6 5</p>
-</blockquote>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><blockquote>
-<p>15</p>
-</blockquote>
-<h3 id="评测用例规模与约定"><a href="#评测用例规模与约定" class="headerlink" title="评测用例规模与约定"></a>评测用例规模与约定</h3><blockquote>
-<p>　　1&lt;=n&lt;=100，0&lt;=横坐标、纵坐标&lt;=100。</p>
-</blockquote>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><blockquote>
-<p>总结此类题目的通法，即对原矩阵的变化无法直接对原矩阵进行操作，但可以设置标志矩阵进行模拟操作。如<a href="http://blog.gongjintao.com/2018/07/26/CCF%E8%AE%A4%E8%AF%81%E9%A2%98%E5%BA%93201512-2%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E6%B6%88%E9%99%A4%E7%B1%BB%E6%B8%B8%E6%88%8F/">201512-2消除类游戏</a><br>本题可设置一个100x100的二维数组map[100][100],然后对输入的进行画图矩阵在map[100][100]中进行涂抹，图上颜色则置为1，最后统计map[100][100]中1的个数即总的面积。</p>
-</blockquote>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,j,s=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">100</span>][<span class="number">100</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">4</span>];</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=a[<span class="number">0</span>];i&lt;a[<span class="number">2</span>];i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=a[<span class="number">1</span>];j&lt;a[<span class="number">3</span>];j++)&#123;</span><br><span class="line">				<span class="built_in">map</span>[i][j]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">100</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">				s++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;s;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://blog.gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">http://blog.gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+        <h2 id="1-KD树实现KNN算法"><a href="#1-KD树实现KNN算法" class="headerlink" title="1. KD树实现KNN算法"></a>1. KD树实现KNN算法</h2><font color="blue">TODO</font>
+
+<h2 id="2-用scikit-learn-实现KNN分类"><a href="#2-用scikit-learn-实现KNN分类" class="headerlink" title="2. 用scikit-learn 实现KNN分类"></a>2. 用scikit-learn 实现KNN分类</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> neighbors</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 随机生成6组200个的正态分布</span></span><br><span class="line">x1 = np.random.normal(<span class="number">50</span>,<span class="number">6</span>,<span class="number">200</span>)</span><br><span class="line">y1 = np.random.normal(<span class="number">5</span>,<span class="number">0.5</span>,<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">x2 = np.random.normal(<span class="number">30</span>,<span class="number">6</span>,<span class="number">200</span>)</span><br><span class="line">y2 = np.random.normal(<span class="number">4</span>,<span class="number">0.5</span>,<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">x3 = np.random.normal(<span class="number">45</span>,<span class="number">6</span>,<span class="number">200</span>)</span><br><span class="line">y3 = np.random.normal(<span class="number">2.5</span>,<span class="number">0.5</span>,<span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">%matplotlib inline</span><br><span class="line"></span><br><span class="line">plt.figure(dpi=<span class="number">100</span>) <span class="comment">#指定像素</span></span><br><span class="line"></span><br><span class="line">plt.scatter(x1,y1,c=<span class="string">'b'</span>,marker=<span class="string">'s'</span>,s=<span class="number">50</span>,alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.scatter(x2,y2,c=<span class="string">'r'</span>, marker=<span class="string">'^'</span>, s=<span class="number">50</span>, alpha=<span class="number">0.8</span>)</span><br><span class="line">plt.scatter(x3,y3, c=<span class="string">'g'</span>, s=<span class="number">50</span>, alpha=<span class="number">0.8</span>)</span><br><span class="line"></span><br><span class="line">plt.axis((<span class="number">10</span>, <span class="number">70</span>,<span class="number">1</span>,<span class="number">7</span>))</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOuly1g4mp58i4mej30e809rmy9.jpg" alt="png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将各组数据组成输入数据集</span></span><br><span class="line">x_val = np.concatenate((x1,x2,x3))</span><br><span class="line">y_val = np.concatenate((y1,y2,y3))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 数据归一化</span></span><br><span class="line">x_diff = max(x_val) - min(x_val)</span><br><span class="line">y_diff = max(y_val) - min(y_val)</span><br><span class="line"></span><br><span class="line">x_normalized = x_val/ x_diff</span><br><span class="line">y_normalized = y_val/ y_diff</span><br><span class="line"></span><br><span class="line"><span class="comment"># 因为python3中zip返回的是一个对象，所以要用list进行展开</span></span><br><span class="line">xy_normalized = list(zip(x_normalized,y_normalized))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成分类标签，第一组为第一类，第二组为第二类，第三组为第三类</span></span><br><span class="line">labels = [<span class="number">1</span>]*<span class="number">200</span> + [<span class="number">2</span>]*<span class="number">200</span> + [<span class="number">3</span>]*<span class="number">200</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成KNN分类器,k为30，其它参数默认</span></span><br><span class="line">clf = neighbors.KNeighborsClassifier(<span class="number">15</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># # 训练数据</span></span><br><span class="line">clf.fit(xy_normalized,labels)</span><br></pre></td></tr></table></figure>
+<p><strong>k最近邻</strong><br>求出(50,5)(30,3)两个点附近最近的5个样本点</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 记得归一化</span></span><br><span class="line">nearest = clf.kneighbors([(<span class="number">50</span>/x_diff,<span class="number">5</span>/y_diff),(<span class="number">30</span>/x_diff,<span class="number">3</span>/y_diff)],<span class="number">5</span>,<span class="literal">False</span>)</span><br><span class="line">print(nearest)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[107 136  97  36 148]</span><br><span class="line"> [261 230 365 294 293]]</span><br></pre></td></tr></table></figure>
+<p><strong>分类预测</strong><br>判断两点的类别分别是哪一类：1，2，3</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prediction = clf.predict([(<span class="number">50</span>/x_diff,<span class="number">5</span>/y_diff),(<span class="number">30</span>/x_diff,<span class="number">3</span>/y_diff)])</span><br><span class="line">print(prediction)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1 2]</span><br></pre></td></tr></table></figure>
+<p><strong>概率预测</strong><br>给出判断两点的类别的概率分别是多少</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">prediction_proba = clf.predict_proba([(<span class="number">50</span>/x_diff,<span class="number">5</span>/y_diff),(<span class="number">30</span>/x_diff,<span class="number">3</span>/y_diff)])</span><br><span class="line">print(prediction_proba)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[[1.  0.  0. ]</span><br><span class="line"> [0.  0.6 0.4]]</span><br></pre></td></tr></table></figure>
+<p><strong>准确率打分</strong><br>即给出模型预测的准确性</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#用同样的方法生成测试数据</span></span><br><span class="line">x1_test = np.random.normal(<span class="number">50</span>,<span class="number">6</span>,<span class="number">100</span>)</span><br><span class="line">y1_test = np.random.normal(<span class="number">5</span>,<span class="number">0.5</span>,<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">x2_test = np.random.normal(<span class="number">30</span>,<span class="number">6</span>,<span class="number">100</span>)</span><br><span class="line">y2_test = np.random.normal(<span class="number">4</span>,<span class="number">0.5</span>,<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">x3_test = np.random.normal(<span class="number">45</span>,<span class="number">6</span>,<span class="number">100</span>)</span><br><span class="line">y3_test = np.random.normal(<span class="number">2.5</span>,<span class="number">0.5</span>,<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line">x_test_val = np.concatenate((x1_test,x2_test,x3_test))</span><br><span class="line">y_test_val = np.concatenate((y1_test,y2_test,y3_test))</span><br><span class="line"></span><br><span class="line">x_test_diff = max(x_test_val) - min(x_test_val)</span><br><span class="line">y_test_diff = max(y_test_val) - min(y_test_val)</span><br><span class="line"></span><br><span class="line">x_test_normalized = x_test_val / x_test_diff</span><br><span class="line">y_test_normalized = y_test_val / y_test_diff</span><br><span class="line"></span><br><span class="line">xy_test_normalized = list(zip(x_test_normalized,y_test_normalized))</span><br><span class="line"></span><br><span class="line">labels_test = [<span class="number">1</span>]*<span class="number">100</span>+[<span class="number">2</span>]*<span class="number">100</span>+[<span class="number">3</span>]*<span class="number">100</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">score = clf.score(xy_test_normalized,labels_test)</span><br><span class="line">print(score)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.95</span><br></pre></td></tr></table></figure>
+<p> 参考自<a href="https://www.joinquant.com/view/community/detail/bb850ee76d1cae16cc587f29c4439ebd" target="_blank" rel="noopener">【量化课堂】scikit-learn 之 kNN 分类</a></p>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://blog.gongjintao.com/2019/07/03/机器学习算法源码之k近邻算法/">http://blog.gongjintao.com/2019/07/03/机器学习算法源码之k近邻算法/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -530,7 +516,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+            <a href="/tags/机器学习/" rel="tag"><i class="fa fa-tag"></i> 机器学习</a>
           
         </div>
       
@@ -543,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/29/CCF认证题库201409-1————相邻对数/" rel="next" title="CCF认证题库201409-1————相邻对数">
-                <i class="fa fa-chevron-left"></i> CCF认证题库201409-1————相邻对数
+              <a href="/2019/07/02/《统计学习方法》——k近邻算法/" rel="next" title="《统计学习方法》——k近邻算法">
+                <i class="fa fa-chevron-left"></i> 《统计学习方法》——k近邻算法
               </a>
             
           </div>
@@ -552,10 +538,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/09/CCF试题库201403-1————相反数/" rel="prev" title="CCF试题库201403-1————相反数">
-                CCF试题库201403-1————相反数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -729,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#评测用例规模与约定"><span class="nav-text">评测用例规模与约定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码示例"><span class="nav-text">代码示例</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#声明：菜鸟拙见，大神勿喷"><span class="nav-text">(声明：菜鸟拙见，大神勿喷)</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-KD树实现KNN算法"><span class="nav-text">1. KD树实现KNN算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-用scikit-learn-实现KNN分类"><span class="nav-text">2. 用scikit-learn 实现KNN分类</span></a></li></ol></div>
             
 
           </div>
