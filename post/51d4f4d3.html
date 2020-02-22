@@ -111,7 +111,7 @@
 <meta property="og:description" content="问题描述 　　给定n个整数表示一个商店连续n天的销售量。如果某天之前销售量在增长，而后一天销售量减少，则称这一天为折点，反过来如果之前销售量减少而后一天销售量增长，也称这一天为折点。其他的天都不是折点。如下图中，第3天和第6天是折点。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http://118.190.20.162/RequireFile.do?fid=gbLRbhR7">
-<meta property="og:updated_time" content="2019-06-30T02:54:54.449Z">
+<meta property="og:updated_time" content="2020-02-22T08:54:27.035Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCF认证题库201604-1————折点计算">
 <meta name="twitter:description" content="问题描述 　　给定n个整数表示一个商店连续n天的销售量。如果某天之前销售量在增长，而后一天销售量减少，则称这一天为折点，反过来如果之前销售量减少而后一天销售量增长，也称这一天为折点。其他的天都不是折点。如下图中，第3天和第6天是折点。">
@@ -417,7 +417,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-30 10:54:54" itemprop="dateModified" datetime="2019-06-30T10:54:54+08:00">2019-06-30</time>
+                <time title="修改时间：2020-02-22 16:54:27" itemprop="dateModified" datetime="2020-02-22T16:54:27+08:00">2020-02-22</time>
               </span>
             
           
@@ -504,7 +504,7 @@
 <p>本题思路简单，只需判断该点是否前后两点比该点大或者小即可，然后统计个数。</p>
 </blockquote>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,num=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">int</span> *a = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;n<span class="number">-1</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>((a[i<span class="number">-1</span>]&gt;a[i] &amp;&amp; a[i+<span class="number">1</span>]&gt;a[i]) || (a[i<span class="number">-1</span>]&lt;a[i] &amp;&amp; a[i+<span class="number">1</span>]&lt;a[i]))&#123;</span><br><span class="line">			num++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;num;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/51d4f4d3.html">https://gongjintao.com/post/51d4f4d3.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>

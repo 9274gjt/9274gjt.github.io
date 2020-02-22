@@ -110,7 +110,7 @@
 <meta property="og:site_name" content="GongJintao&#39; Blog">
 <meta property="og:description" content="问题描述 　给定 n 个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-30T02:59:52.812Z">
+<meta property="og:updated_time" content="2020-02-22T08:54:27.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CCF试题库201312-1————出现次数最多的数">
 <meta name="twitter:description" content="问题描述 　给定 n 个正整数，找出它们中出现次数最多的数。如果这样的数有多个，请输出其中最小的一个。">
@@ -415,7 +415,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-30 10:59:52" itemprop="dateModified" datetime="2019-06-30T10:59:52+08:00">2019-06-30</time>
+                <time title="修改时间：2020-02-22 16:54:27" itemprop="dateModified" datetime="2020-02-22T16:54:27+08:00">2020-02-22</time>
               </span>
             
           
@@ -499,7 +499,7 @@
 <p>此处规模不大，用hash表比较方便。</p>
 </blockquote>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,s=<span class="number">0</span>,min,data;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">	<span class="keyword">int</span> sum[<span class="number">10001</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;data);</span><br><span class="line">		sum[data]++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=<span class="number">10000</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">if</span>(sum[i]&gt;s)&#123;</span><br><span class="line">			s=sum[i];</span><br><span class="line">			min=i;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d"</span>,min);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/a0be2792.html">https://gongjintao.com/post/a0be2792.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
