@@ -106,7 +106,7 @@
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCF认证题库201409-2————画图">
-<meta property="og:url" content="https://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/index.html">
+<meta property="og:url" content="http://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/index.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
 <meta property="og:description" content="问题描述 　在一个定义了直角坐标系的纸上，画一个(x1,y1)到(x2,y2)的矩形指将横坐标范围从x1到x2，纵坐标范围从y1到y2之间的区域涂上颜色。　　下图给出了一个画了两个矩形的例子。第一个矩形是(1,1) 到(4, 4)，用绿色和紫色表示。第二个矩形是(2, 3)到(6, 5)，用蓝色和紫色表示。图中，一共有15个单位的面积被涂上颜色，其中紫色部分被涂了两次，但在计算面积时只计算一次。在">
 <meta property="og:locale" content="zh-CN">
@@ -125,7 +125,7 @@
 
   
   
-  <link rel="canonical" href="https://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
+  <link rel="canonical" href="http://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
 
 
 
@@ -359,7 +359,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
+    <link itemprop="mainEntityOfPage" href="http://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -503,7 +503,7 @@
 <p>总结此类题目的通法，即对原矩阵的变化无法直接对原矩阵进行操作，但可以设置标志矩阵进行模拟操作。如<a href="http://blog.gongjintao.com/2018/07/26/CCF%E8%AE%A4%E8%AF%81%E9%A2%98%E5%BA%93201512-2%E2%80%94%E2%80%94%E2%80%94%E2%80%94%E6%B6%88%E9%99%A4%E7%B1%BB%E6%B8%B8%E6%88%8F/" target="_blank" rel="noopener">201512-2消除类游戏</a><br>本题可设置一个100x100的二维数组map[100][100],然后对输入的进行画图矩阵在map[100][100]中进行涂抹，图上颜色则置为1，最后统计map[100][100]中1的个数即总的面积。</p>
 </blockquote>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,j,s=<span class="number">0</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">int</span> <span class="built_in">map</span>[<span class="number">100</span>][<span class="number">100</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">	<span class="keyword">int</span> a[<span class="number">4</span>];</span><br><span class="line">	<span class="keyword">while</span>(n--)&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">			<span class="built_in">cin</span>&gt;&gt;a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(i=a[<span class="number">0</span>];i&lt;a[<span class="number">2</span>];i++)&#123;</span><br><span class="line">			<span class="keyword">for</span>(j=a[<span class="number">1</span>];j&lt;a[<span class="number">3</span>];j++)&#123;</span><br><span class="line">				<span class="built_in">map</span>[i][j]=<span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">100</span>;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">map</span>[i][j]==<span class="number">1</span>)&#123;</span><br><span class="line">				s++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;s;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">https://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/">http://gongjintao.com/2018/07/29/CCF认证题库201409-2————画图/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>

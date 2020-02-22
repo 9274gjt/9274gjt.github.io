@@ -106,7 +106,7 @@
 <meta name="keywords" content="C&#x2F;C++">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CCF认证题库201612-1————中间数">
-<meta property="og:url" content="https://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/index.html">
+<meta property="og:url" content="http://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/index.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
 <meta property="og:description" content="问题描述 在一个整数序列a1, a2, …, an中，如果存在某个数，大于它的整数数量等于小于它的整数数量，则称其为中间数。在一个序列中，可能存在多个下标不相同的中间数，这些中间数的值是相同的。　　给定一个整数序列，请找出这个整数序列的中间数的值。">
 <meta property="og:locale" content="zh-CN">
@@ -123,7 +123,7 @@
 
   
   
-  <link rel="canonical" href="https://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">
+  <link rel="canonical" href="http://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">
 
 
 
@@ -357,7 +357,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">
+    <link itemprop="mainEntityOfPage" href="http://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -523,7 +523,7 @@
 <p>做两次循环对比即可解决问题。注意的是题目中说到中间数可能有多个 ，但是值是一样的，所以如果判断存在中间数，便可以跳出循环，然后每次判断完一个数，若不是中间数要将计数器重置为0。</p>
 </blockquote>
 <h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n,i,numl=<span class="number">0</span>,numg=<span class="number">0</span>,flag=<span class="number">1</span>;</span><br><span class="line">	<span class="built_in">cin</span>&gt;&gt;n;</span><br><span class="line">	<span class="keyword">int</span> *arr = <span class="keyword">new</span> <span class="keyword">int</span>[n];<span class="comment">//动态申请数组 </span></span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="built_in">cin</span>&gt;&gt;arr[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;n;i++)&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(arr[j]&gt;arr[i])&#123;</span><br><span class="line">				numg++;</span><br><span class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[j]&lt;arr[i])&#123;		</span><br><span class="line">				numl++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(numg==numl)&#123;</span><br><span class="line">			<span class="built_in">cout</span>&lt;&lt;arr[i];</span><br><span class="line">			flag=<span class="number">0</span>;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		numg=numl=<span class="number">0</span>;<span class="comment">//表明该数不是中间数，计数器重置</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(flag)<span class="built_in">cout</span>&lt;&lt;<span class="number">-1</span>;<span class="comment">//没有中间数</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">https://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="http://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/">http://gongjintao.com/2018/07/18/CCF认证题库201612-1————中间数/</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
