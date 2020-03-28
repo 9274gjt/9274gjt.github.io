@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd9x1pbkq6j30uw0m4n0q.jpg">
 <meta property="og:image" content="c:/Users/9274gjt/AppData/Roaming/Typora/typora-user-images/image-20200328210623603.png">
-<meta property="og:updated_time" content="2020-03-28T14:11:04.500Z">
+<meta property="og:updated_time" content="2020-03-28T14:16:56.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Attention Based Model">
 <meta name="twitter:description" content="Attention Based ModelMachine Translation早期的机器翻译 早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。  统计机器翻译：主要思想是从数据中学习一个概率模型。 假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：  \text{argmax}_y P(y|x)通过贝叶斯定">
@@ -404,7 +404,7 @@
                 
               
 
-              <time title="创建时间：2020-03-28 19:27:46 / 修改时间：22:11:04" itemprop="dateCreated datePublished" datetime="2020-03-28T19:27:46+08:00">2020-03-28</time>
+              <time title="创建时间：2020-03-28 19:27:46 / 修改时间：22:16:56" itemprop="dateCreated datePublished" datetime="2020-03-28T19:27:46+08:00">2020-03-28</time>
             </span>
           
 
@@ -512,7 +512,7 @@ P(x,a|y)</script><p>其中a是对齐方式，即源语言句子 $x$ 和目标语
 <h4 id="解码方法"><a href="#解码方法" class="headerlink" title="解码方法"></a>解码方法</h4><p><strong>贪婪解码(Greedy Decoding)</strong>：</p>
 <p><img src="C:\Users\9274gjt\AppData\Roaming\Typora\typora-user-images\image-20200328210623603.png" alt="image-20200328210623603"></p>
 <p>即在每一步中取最可能的单词。存在的问题是可能当前的最大概率的单词对于翻译整个句子来讲不一定是最优的选择，但由于每次我们都做greedy的选择我们没机会选择另一条整体最优的路径。</p>
-<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/4b37d30a.html">https://gongjintao.com/post/4b37d30a.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -1277,6 +1277,46 @@ P(x,a|y)</script><p>其中a是对齐方式，即源语言句子 $x$ 和目标语
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
