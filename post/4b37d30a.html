@@ -102,36 +102,25 @@
 
 
 
-  <meta name="description" content="RNN IN NLPRNN Language Model模型结构  首先是词嵌入层。  e^{(t)} = Ex^{(t)}其中$x^{(t)} \in \mathbb{R}^{|V|}$代表单词或单词的one-hot编码。  然后是隐藏层单元，每个隐藏层单元的状态都等于对应的词向量的加权再加上其前一个隐藏层状态的加权之和。再通过激活函数。即：  \boldsymbol{h}^{(t)}=\sig">
+  <meta name="description" content="Attention Based ModelMachine Translation早期的机器翻译 早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。  统计机器翻译：主要思想是从数据中学习一个概率模型。 假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：  \text{argmax}_y P(y|x)通过贝叶斯定">
 <meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="RNN IN NLP">
-<meta property="og:url" content="https://gongjintao.com/post/9994ec50.html">
+<meta property="og:title" content="Attention Based Model">
+<meta property="og:url" content="https://gongjintao.com/post/4b37d30a.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
-<meta property="og:description" content="RNN IN NLPRNN Language Model模型结构  首先是词嵌入层。  e^{(t)} = Ex^{(t)}其中$x^{(t)} \in \mathbb{R}^{|V|}$代表单词或单词的one-hot编码。  然后是隐藏层单元，每个隐藏层单元的状态都等于对应的词向量的加权再加上其前一个隐藏层状态的加权之和。再通过激活函数。即：  \boldsymbol{h}^{(t)}=\sig">
+<meta property="og:description" content="Attention Based ModelMachine Translation早期的机器翻译 早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。  统计机器翻译：主要思想是从数据中学习一个概率模型。 假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：  \text{argmax}_y P(y|x)通过贝叶斯定">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3xdmx4jtj30v30nadjx.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2fqfij30ui0mitbs.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2hzqbj30u40me77e.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zb7tr6ej30tk0mdacq.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zhoyi9hj30m506xq3x.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zjqqvfbj30iq03e3ys.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd47d8mo64j30ud0m9wha.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5batccbxj30iu09wq5s.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5dn7j9dkj30tq0i7jw4.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5du57mbjj30t00qn7a0.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5f06z6kkj30rg0drdjc.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5y6x24l0j30sc0e2acz.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70qf1mj30e9087751.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70t78fj30bk09f40m.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd6367ftj1j30ul0l0n1f.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd63ivtp2uj30op0iitbh.jpg">
-<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd65a4cc16j30os0i0mz5.jpg">
-<meta property="og:updated_time" content="2020-03-29T14:08:50.691Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd9x1pbkq6j30uw0m4n0q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdakh1tk7cj30ep0ad75q.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdamgc7v9qj30ut0lxju9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdavu3d7xij31da0j9q7y.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdavyq44o6j312o0q2td7.jpg">
+<meta property="og:updated_time" content="2020-03-29T14:07:30.728Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="RNN IN NLP">
-<meta name="twitter:description" content="RNN IN NLPRNN Language Model模型结构  首先是词嵌入层。  e^{(t)} = Ex^{(t)}其中$x^{(t)} \in \mathbb{R}^{|V|}$代表单词或单词的one-hot编码。  然后是隐藏层单元，每个隐藏层单元的状态都等于对应的词向量的加权再加上其前一个隐藏层状态的加权之和。再通过激活函数。即：  \boldsymbol{h}^{(t)}=\sig">
-<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd3xdmx4jtj30v30nadjx.jpg">
+<meta name="twitter:title" content="Attention Based Model">
+<meta name="twitter:description" content="Attention Based ModelMachine Translation早期的机器翻译 早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。  统计机器翻译：主要思想是从数据中学习一个概率模型。 假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：  \text{argmax}_y P(y|x)通过贝叶斯定">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg">
 
 
 
@@ -141,7 +130,7 @@
 
   
   
-  <link rel="canonical" href="https://gongjintao.com/post/9994ec50">
+  <link rel="canonical" href="https://gongjintao.com/post/4b37d30a">
 
 
 
@@ -151,7 +140,7 @@
   };
 </script>
 
-  <title>RNN IN NLP | GongJintao' Blog</title>
+  <title>Attention Based Model | GongJintao' Blog</title>
   
 
 
@@ -375,7 +364,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/post/9994ec50.html">
+    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/post/4b37d30a.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -392,7 +381,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">RNN IN NLP
+          <h2 class="post-title" itemprop="name headline">Attention Based Model
 
               
             
@@ -418,7 +407,7 @@
                 
               
 
-              <time title="创建时间：2020-03-24 19:27:46" itemprop="dateCreated datePublished" datetime="2020-03-24T19:27:46+08:00">2020-03-24</time>
+              <time title="创建时间：2020-03-28 19:27:46" itemprop="dateCreated datePublished" datetime="2020-03-28T19:27:46+08:00">2020-03-28</time>
             </span>
           
 
@@ -433,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-29 22:08:50" itemprop="dateModified" datetime="2020-03-29T22:08:50+08:00">2020-03-29</time>
+                <time title="修改时间：2020-03-29 22:07:30" itemprop="dateModified" datetime="2020-03-29T22:07:30+08:00">2020-03-29</time>
               </span>
             
           
@@ -465,8 +454,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/post/9994ec50.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/post/9994ec50.html" itemprop="commentCount"></span>
+                <a href="/post/4b37d30a.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/4b37d30a.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -497,153 +486,182 @@
       
 
       
-        <h1 id="RNN-IN-NLP"><a href="#RNN-IN-NLP" class="headerlink" title="RNN IN NLP"></a>RNN IN NLP</h1><h2 id="RNN-Language-Model"><a href="#RNN-Language-Model" class="headerlink" title="RNN Language Model"></a>RNN Language Model</h2><h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3xdmx4jtj30v30nadjx.jpg" alt="Snipaste_2020-03-23_16-08-01.png"></p>
-<ol>
-<li><p>首先是词嵌入层。</p>
-<script type="math/tex; mode=display">
-e^{(t)} = Ex^{(t)}</script><p>其中$x^{(t)} \in \mathbb{R}^{|V|}$代表单词或单词的one-hot编码。</p>
+        <h1 id="Attention-Based-Model"><a href="#Attention-Based-Model" class="headerlink" title="Attention Based Model"></a>Attention Based Model</h1><h2 id="Machine-Translation"><a href="#Machine-Translation" class="headerlink" title="Machine Translation"></a>Machine Translation</h2><h3 id="早期的机器翻译"><a href="#早期的机器翻译" class="headerlink" title="早期的机器翻译"></a>早期的机器翻译</h3><ol>
+<li><p>早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。</p>
 </li>
-<li><p>然后是隐藏层单元，每个隐藏层单元的状态都等于对应的词向量的加权再加上其前一个隐藏层状态的加权之和。再通过激活函数。即：</p>
+<li><p>统计机器翻译：主要思想是从数据中学习一个概率模型。</p>
+<p>假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：</p>
 <script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\sigma\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{e} \boldsymbol{e}^{(t)}+\boldsymbol{b}_{1}\right)</script><p>其中 $h^{(0)}$ 是初始的隐藏层状态。</p>
-<font color="red">注：其中 $W_h$ 和 $W_e$ 在每一时间步都是相同的。</font>
-</li>
-<li><p>最后的输出概率，如下：</p>
+\text{argmax}_y P(y|x)</script><p>通过贝叶斯定理，可以将上式分为两个部分，分别进行学习：</p>
 <script type="math/tex; mode=display">
-\hat{\boldsymbol{y}}^{(t)}=\operatorname{softmax}\left(\boldsymbol{U} \boldsymbol{h}^{(t)}+\boldsymbol{b}_{2}\right) \in \mathbb{R}^{|V|}</script></li>
+= \text{argmax}_y P(x|y) P(y)</script><ol>
+<li>$P(x|y)$ 即翻译模型，如何合理的翻译出单词和短语，需要从平行语料中学习。</li>
+<li>$P(y)$ 即语言模型，如何写好流利的英语。从单语数据中学习。</li>
 </ol>
-<h3 id="模型优缺点"><a href="#模型优缺点" class="headerlink" title="模型优缺点"></a>模型优缺点</h3><ol>
-<li>优点：<ul>
-<li>可以处理任意长度的输入</li>
-<li>理论上计算第 $t$ 步的值可以使用前面许多步的信息</li>
-<li>输入规模的增加不会增加模型规模</li>
-<li>对于每一个时间步所使用的权重参数是一样的，保证了对称性。</li>
+</li>
+</ol>
+<p><strong>如何从平行语料库中学习翻译模型 $ P(x|y)$</strong> ：</p>
+<p>进一步分解：</p>
+<script type="math/tex; mode=display">
+P(x,a|y)</script><p>其中a是对齐方式，即源语言句子 $x$ 和目标语言句子 $y$之 间的字级的对应。</p>
+<p>对齐方式有多种情况：</p>
+<ol>
+<li>可能有些单词在另一种语言中没有对齐单词</li>
+<li>多对一</li>
+<li>一对多</li>
+<li>多对多</li>
+</ol>
+<p><strong>那么如何来计算最优值</strong>：</p>
+<p>如果列举每一种可能的 $y$ ，然后计算概率，则计算量太大。我们可以用一种启发式的搜索算法来寻找最佳翻译，摒弃概率太低的假设。这个过程称为解码(decoding)</p>
+<h2 id="神经机器翻译"><a href="#神经机器翻译" class="headerlink" title="神经机器翻译"></a>神经机器翻译</h2><ol>
+<li>神经机器翻译是用单个神经网络来进行机器翻译</li>
+<li>其神经网络结构被称为 <strong>seq2seq</strong> ，它包括两个 RNNs</li>
+</ol>
+<h3 id="seq2seq模型"><a href="#seq2seq模型" class="headerlink" title="seq2seq模型"></a>seq2seq模型</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg" alt="Snipaste_2020-03-25_16-25-45.png"></p>
+<p style="color:red">seq2seq 除了用于机器翻译，也可以用于其他方面，如文本摘要，对话系统，语法分析，代码生成</p>
+
+<h3 id="训练-NMT"><a href="#训练-NMT" class="headerlink" title="训练 NMT"></a>训练 NMT</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd9x1pbkq6j30uw0m4n0q.jpg" alt="image-20200328202816387.png"></p>
+<h4 id="解码方法"><a href="#解码方法" class="headerlink" title="解码方法"></a>解码方法</h4><p><strong>贪婪解码(Greedy Decoding)</strong>：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdakh1tk7cj30ep0ad75q.jpg" alt="image-20200328210623603.png"></p>
+<p>即在每一步中取最可能的单词。存在的问题是可能当前的最大概率的单词对于翻译整个句子来讲不一定是最优的选择，但由于每次我们都做greedy的选择我们没机会选择另一条整体最优的路径。</p>
+<p>为解决这一问题，一个常用的方法是<strong>beam search decoding</strong>。其<strong>主要思想</strong>是，其基本思想是在decoder的每一步，我们不仅仅是取概率最大的单词，而是保存k个当前最有可能的翻译假设，其中k称作beam size，通常在5到10之间。</p>
+<p>假设 $y_1,\dots,y_t$ 的分数是其概率的对数来表示，即</p>
+<script type="math/tex; mode=display">
+\operatorname{score}\left(y_{1}, \ldots, y_{t}\right)=\log P_{\mathrm{LM}}\left(y_{1}, \ldots, y_{t} | x\right)=\sum_{i=1}^{t} \log P_{\mathrm{LM}}\left(y_{i} | y_{1}, \ldots, y_{i-1}, x\right)</script><p>分数越高越好。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdamgc7v9qj30ut0lxju9.jpg" alt="Snipaste_2020-03-29_11-09-00.png"></p>
+<p>从上图可知当 Beam size = k = 2 时，每一步都会找得分最高的 2 个，直到最后，再进行回溯。</p>
+<p>编码结束，一般是产生了<end>标识符，但每个假设产生<end>标识符的时间不同，所以一般整个结束是在到了时刻 T(T是一个预定义的截止值)或者产生了至少 n 个完整假设。(n 是一个预定义的截止值)。</end></end></p>
+<p><strong>当我们有一组完全假设，如何选择分数最高的那一个？</strong></p>
+<p>虽然分数越高越好，但求和中的每一项都是负数，这会导致长的翻译分数更低，所以最后在选取整句概率最大的翻译时，要对分数做归一化。</p>
+<script type="math/tex; mode=display">
+\frac{1}{t} \sum_{i=1}^{t} \log P_{\mathrm{LM}}\left(y_{i} | y_{1}, \ldots, y_{i-1}, x\right)</script><h3 id="NML的优缺点"><a href="#NML的优缺点" class="headerlink" title="NML的优缺点"></a>NML的优缺点</h3><p><strong>优点：</strong></p>
+<p>相比于 SMT ，NMT 有以下优点：</p>
+<ol>
+<li>更好的效果<ul>
+<li>更加流畅</li>
+<li>对上下文有更好的利用</li>
+<li>对短语相似度有更好的利用</li>
 </ul>
 </li>
-<li>缺点：<ul>
-<li>递归计算速度较慢</li>
-<li>在实践中，很难从前面的许多步骤获取信息</li>
+<li>端到端优化单个神经网络：<ul>
+<li>不用单独优化某个子组件</li>
+</ul>
+</li>
+<li>所需的人力更少<ul>
+<li>不需要特征工程</li>
+<li>对于所有的语言对可以用同样的方法</li>
 </ul>
 </li>
 </ol>
-<h3 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h3><ol>
-<li><p>输入：一个大规模文本语料库，$x^{(1)},\dots,x^{(T)}$</p>
-</li>
-<li><p>输出：每个单词的概率，$\hat{y}^{(t)}$</p>
-</li>
-<li><p>对于每个时间步的损失函数可定义为交叉熵损失函数：</p>
-<script type="math/tex; mode=display">
-J^{(t)}(\theta)=C E\left(\boldsymbol{y}^{(t)}, \hat{\boldsymbol{y}}^{(t)}\right)=-\sum_{w \in V} \boldsymbol{y}_{w}^{(t)} \log \hat{\boldsymbol{y}}_{w}^{(t)}=-\log \hat{\boldsymbol{y}}_{x_{t+1}}^{(t)}</script><p>其中 $y^{(t)}$ 即单词 $x^{(t+1)}$ 的one-hot编码。</p>
-</li>
-<li><p>对整个训练集的所有损失函数取平均得到整体损失：</p>
-<script type="math/tex; mode=display">
-J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-\log \hat{\boldsymbol{y}}_{x_{t+1}}^{(t)}</script><p>训练过程如图所示:</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2fqfij30ui0mitbs.jpg" alt></p>
-</li>
-</ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2hzqbj30u40me77e.jpg" alt></p>
+<p><strong>缺点：</strong></p>
+<p>相比于 SMT，NMT 有以下缺点：</p>
 <ol>
-<li><p>模型的反向传播：</p>
-<p>每一个时间步的损失函数对 $W_h$ 求导结果为（这是多变量求导的链式法则)：</p>
-<script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zb7tr6ej30tk0mdacq.jpg" alt="Snipaste_2020-03-23_17-15-11.png"></p>
+<li>NMT 解释性较差：<ul>
+<li>难以 debug</li>
+</ul>
+</li>
+<li>NMT较难控制：<ul>
+<li>无法轻松指定翻译规则或指导原则</li>
+<li>存在安全问题</li>
+</ul>
 </li>
 </ol>
-<h3 id="模型的评估"><a href="#模型的评估" class="headerlink" title="模型的评估"></a>模型的评估</h3><p>通常使用<strong>困惑度</strong>来衡量语言模型的好坏，主要思想是，句子概率越大，困惑度越小，模型越好：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zhoyi9hj30m506xq3x.jpg" alt="Snipaste_2020-03-23_17-21-18.png"></p>
-<p>RNN模型中困惑度也等于交叉熵损失函数的指数:</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zjqqvfbj30iq03e3ys.jpg" alt="Snipaste_2020-03-23_17-23-26.png"></p>
-<p>而RNN模型对比 n-gram 模型有更小的困惑度。</p>
-<h2 id="梯度消失和梯度爆炸问题"><a href="#梯度消失和梯度爆炸问题" class="headerlink" title="梯度消失和梯度爆炸问题"></a>梯度消失和梯度爆炸问题</h2><p><strong>直觉</strong>：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd47d8mo64j30ud0m9wha.jpg" alt="Snipaste_2020-03-23_21-53-52.png"></p>
-<p><strong>推导</strong>：</p>
-<p>因为：$\boldsymbol{h}^{(t)}=\sigma\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)$ </p>
-<p>因此：$\frac{\partial \boldsymbol{h}^{(t)}}{\partial \boldsymbol{h}^{(t-1)}}=\operatorname{diag}\left(\sigma^{\prime}\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)\right) \boldsymbol{W}_{h}$</p>
-<p>则第 $i$ 步的损失对前第 $j$ 步隐藏状态 $h^{(j)}$ 求导为：</p>
-<script type="math/tex; mode=display">
-\begin{aligned}
-\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(j)}} &=\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(i)}} \prod_{j<t \leq i} \frac{\partial \boldsymbol{h}^{(t)}}{\partial \boldsymbol{h}^{(t-1)}} \\
-&=\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(i)}} \boldsymbol{W}_{h}^{(i-j)} \prod_{j<t \leq i} \operatorname{diag}\left(\sigma^{\prime}\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)\right)
-\end{aligned}</script><p>考虑上式的 L2 范数：</p>
-<script type="math/tex; mode=display">
-\left\|\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(j)}}\right\| \leq\left\|\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(i)}}\right\|\left\|\boldsymbol{W}_{h}\right\|^{(i-j)} \prod_{j<t \leq i}\left\|\operatorname{diag}\left(\sigma^{\prime}\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)\right)\right\|</script><p>可证明 $W_h$ 的最大特征值小于1 ，则 $\left|\frac{\partial J^{(i)}(\theta)}{\partial \boldsymbol{h}^{(j)}}\right|$ 将呈指数级收缩，即梯度消失问题；同样的当 $W_h$ 的最大特征值大于1，则呈指数级增加，即梯度爆炸问题。</p>
-<p><strong>梯度消失带来的问题</strong>：</p>
-<p>它导致我们无法分辨 $t$ 时刻与 $k$ 时刻究竟是数据本身毫无关联还是由于梯度消失而导致我们无法捕捉到这一关联。这就导致了我们只能学习到近程的关系而不能学习到远程的关系，会影响很多语言处理问题的准确度。</p>
-<p><strong>梯度爆炸带来得问题：</strong></p>
-<p>如果梯度过大，则在梯度下降得更新步也变得很大。</p>
-<p>这会导致错误得更新步骤，使得参数配置错误，即损失函数很大。甚至导致网络中出现 <code>INF</code> 或者 <code>NaN</code> ，以至于要在更早的检查点重新训练。</p>
-<p><strong>梯度爆炸的解决办法：</strong></p>
-<p>梯度剪枝(Gradient clipping)，伪代码如下:</p>
-<script type="math/tex; mode=display">
-\begin{array}{l}
-\text { Algorithm 1 Pseudo-code for norm clipping } \\
-\hline \hat{\mathbf{g}} \leftarrow \frac{\partial \mathcal{E}}{\partial \theta} \\
-\text { if }\|\hat{\mathbf{g}}\| \geq \text { threshold then } \\
-\hspace{1em}\hat{\mathbf{g}} \leftarrow \frac{\text { threshold }}{\|\mathbf{g}\|} \hat{\mathbf{g}} \\
-\text { end if }
-\end{array}</script><p>如图所示:</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5batccbxj30iu09wq5s.jpg" alt="Snipaste_2020-03-24_20-55-10.png"></p>
-<p><strong>梯度消失问题的解决办法：</strong></p>
-<p>主要问题是 RNN 很难学会多个时间段内保存的信息。在一个普通的 RNN 网络中，隐藏层状态一直被下式重写：</p>
-<script type="math/tex; mode=display">
-\boldsymbol{h}^{(t)}=\sigma\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}\right)</script><p>所以其基本思路是设置一些存储单元来更有效的进行长程信息的存储。</p>
-<h2 id="LSTM-Long-Short-Term-Memory"><a href="#LSTM-Long-Short-Term-Memory" class="headerlink" title="LSTM(Long Short-Term Memory)"></a>LSTM(Long Short-Term Memory)</h2><p>主要特点是：</p>
+<h2 id="评估机器翻译"><a href="#评估机器翻译" class="headerlink" title="评估机器翻译"></a>评估机器翻译</h2><p><strong>BLEU(Bilingual Evaluation Understudy)</strong></p>
+<p>BLEU 将机器翻译的结果和人工翻译的结果进行比较，然后基于以下条件计算得分：</p>
 <ol>
-<li>在每个时间步 $t$ ,有隐藏层状态 $h^{(t)}$ 和单元状态 $c^{(t)}$</li>
-<li>$h^{(t)}$ 和 $c^{(t)}$ 都是长为 $n$ 的向量</li>
-<li>$c^{(t)}$ 用来存储长期信息</li>
-<li>LSTM可以擦除，写入和读取单元中的信息<br>信息的擦除/写入/读取的选择由三个相应的<strong>门</strong>来控制</li>
-<li>门也是长为 $n$ 的向量。</li>
-<li>在每一个时间步，门的每个元素可以是打开(1)、关闭(0)或者介于两者之间的某个位置。</li>
-<li><p>门是动态的：其值是根据上下文计算的。</p>
-<p>假设输入序列是 $x^{(t)}$ ，则LSTM的公式如下：<br><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5dn7j9dkj30tq0i7jw4.jpg" alt="Snipaste_2020-03-24_22-16-34.png"><br><strong>LSTM结构图：</strong></p>
+<li>n-gram 精度（通常是1，2，3 和 4-grams）</li>
+<li>对太短的系统翻译进行惩罚</li>
+</ol>
+<p>BLEU 有用但是不够完美：</p>
+<ol>
+<li>翻译一个句子有很多有效的方法</li>
+<li>所以一个好的翻译可以得到一个很差的BLEU分数，因为它与人类翻译有很低的n-gram重叠</li>
+</ol>
+<h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>seq2seq 结构的瓶颈问题：在编码阶段，需要对所输入的所有信息都encode到encoder的最后一个hidden state上，这通常是不现实的，因此引入Attention来解决这个瓶颈。</p>
+<p>主要思想：在解码器的每个步骤中，使用与编码器的直接连接来聚焦源序列的特定部分。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavu3d7xij31da0j9q7y.jpg" alt="Snipaste_2020-03-29_16-32-27.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavyq44o6j312o0q2td7.jpg" alt="Snipaste_2020-03-29_16-38-16.png"></p>
+<ol>
+<li><ul>
+<li><p>先用解码器的每个状态于编码器的各状态做点积得到 Attention scores</p>
+</li>
+<li><p>然后在 Attention scores 上取 softmax 得到其概率分布 Attention distribution</p>
+</li>
+<li>用 Attention distribution 求 encoder hidden state 的加权和，即 Attention output(主要包含来自被高度注意的隐藏状态的信息)</li>
+</ul>
+</li>
+<li><ul>
+<li>将 Attention output 与 decoder hidden state 连接，然后用其计算得到 $\hat{y}$(有时我们以从上一步中提取 Attention output，并将其输入解码器)</li>
+</ul>
 </li>
 </ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5du57mbjj30t00qn7a0.jpg" alt="Snipaste_2020-03-24_22-23-14.png"></p>
+<p>公式说明：</p>
 <ol>
-<li>新的记忆单元：$\tilde{c}_{t}$ 通过将新的输入 $x_{t}$ 与代表之前的 context 的隐藏层单元 $h_{（t-1）}$ 结合成新的记忆</li>
-<li>输入门：$i_t$ 决定新的信息是否由保留的价值</li>
-<li>遗忘门：$f_t$ 决定之前的记忆单元(cell state)有多少保留的价值</li>
-<li>最终的记忆单元：$c_t$ 通过遗忘门 $f_t$ 和前一个记忆单元 $c_{(t-1)}$ 作元素积得到 $c_{(t-1)}$ 需要传递下去的信息，并与输入门 $i_t$ 和新的记忆单元$c_t$的元素积求和。极端情况即遗忘门的值为 1，则之前的记忆单元的全部信息都会传递下去，<strong>使得梯度消失问题不复存在</strong></li>
-<li>输出门：$o_t$ 决定了记忆单元有多少信息需要保存在隐藏层状态中</li>
+<li><p>encoder 隐变量状态 $h_1,\dots,h_N \in \mathbb{R}^h$</p>
+</li>
+<li><p>第 $t$ 个时间步的decoder 隐变量状态 $s_t \in \mathbb{R}^h$</p>
+</li>
+<li><p>得到第 $t$ 时间步的 attention scores：</p>
+<script type="math/tex; mode=display">
+e^{t}=\left[s_{t}^{T} h_{1}, \ldots, s_{t}^{T} h_{N}\right] \in \mathbb{R}^{N}</script></li>
+<li><p>用 softmax 求 attention distribution：</p>
+<script type="math/tex; mode=display">
+\alpha^{t}=\operatorname{softmax}\left(e^{t}\right) \in \mathbb{R}^{N}</script></li>
+<li><p>用 $\alpha^t$ 作为权重，来计算 encoder hidden state 的加权和，得到 attention output：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{a}_{t}=\sum_{i=1}^{N} \alpha_{i}^{t} \boldsymbol{h}_{i} \in \mathbb{R}^{h}</script></li>
+<li><p>最后，将 attention output 与 decoder hidden state 连接起来:</p>
+<script type="math/tex; mode=display">
+\left[\boldsymbol{a}_{t} ; \boldsymbol{s}_{t}\right] \in \mathbb{R}^{2 h}</script></li>
 </ol>
-<p>LSTM不能保证不存在消失/爆炸梯度，但它确实为模型提供了一种更容易学习远程依赖关系的方法。</p>
-<h2 id="GRU-Gated-Recurrent-Units"><a href="#GRU-Gated-Recurrent-Units" class="headerlink" title="GRU(Gated Recurrent Units)"></a>GRU(Gated Recurrent Units)</h2><p>对 LSTM 做了简单的改变。每个时间步 $t$ 只有输入 $x^{(t)}$ 和 $h^{(t)}$ 。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5f06z6kkj30rg0drdjc.jpg" alt="Snipaste_2020-03-24_23-03-27.png"></p>
+<p><strong>Attention 的好处</strong>：</p>
 <ol>
-<li>新的记忆生成：$\tilde{h}_t$ 是由一个新的输入 $x_t$ 和上一个隐藏状态 $h_{t-1}$ 组合而成</li>
-<li>复位门：复位信号 $r_t$ 负责确定 $h_{t-1}$ 对 $ \tilde{h}_t $ 的重要程度。如果复位信号发现 $h_{t-1}$ 对于新的记忆 $ \tilde{h}_t $ 是无关的，则它能够完全减小过去的隐藏状态</li>
-<li>更新门：更新信号 $u_t$ 负责将多少  $h_{t-1}$  转结到下一个状态。例如，如果 $u_{t} \approx 1$ ，则 $h_{t-1}$ 几乎都被复制到 $h_t$，相反，则新的记忆 $\tilde{h}_{t}$ 则被传递给下一个隐藏状态 $ h_t $ </li>
-<li><p>隐藏状态： $h_t$ 即在更新门的取舍下，由上一个隐藏状态 $h_{t-1} $和新的记忆生成 $\tilde{h}_t$ 组合而成</p>
-<p>GRU的结构图如下：</p>
+<li>Attention 提升了 NMT 性能<ul>
+<li>让 decoder 关注源序列确定部分是非常有用的</li>
+</ul>
+</li>
+<li>Attention 解决了瓶颈问题<ul>
+<li>Attention 允许 decoderr 直接关注源序列，可以绕过瓶颈</li>
+</ul>
+</li>
+<li>Attention 有助于解决梯度消失问题<ul>
+<li>提供了直接连接远处状态的捷径</li>
+</ul>
+</li>
+<li>Attention 提供了一些可解释性<ul>
+<li>通过 attention distribute，可以知道 decoder 关注的重点</li>
+<li>可以轻易得到(软)对齐，因为无需特意训练一个对齐系统</li>
+<li>网络自动学习对齐</li>
+</ul>
 </li>
 </ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5y6x24l0j30sc0e2acz.jpg" alt="Snipaste_2020-03-25_10-04-07.png"></p>
-<p style="color:red">梯度消失仅仅局限于RNN结构吗？实际上对于深度神经网络，尤其层数较多时，由于链式法则以及非线性函数的选择，梯度消失问题也会出现，导致底层的layer学习速度很慢，只不过由于RNN中由于不断的乘以相同的权重矩阵导致其梯度消失问题更显著。</p>
-
-<p style="color:red">对于非RNN的深度神经网络如前馈神经网络与卷积神经网络，为了解决梯度消失问题，通常可以引入更直接的联结使得梯度更容易传递。</p>
-
-<p>例如在ResNet中，通过引入与前层输入一样的联结使得信息更有效的流动，这使得我们可以能够训练更深层的模型。这一联结被称作Residual Connection或Skip Connection</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70qf1mj30e9087751.jpg" alt></p>
-<p>在DenseNet中，我们可以将几层之间全部建立直接联结，形成dense connection。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70t78fj30bk09f40m.jpg" alt></p>
-<h2 id="双向-RNN-Bidirectional-RNNs"><a href="#双向-RNN-Bidirectional-RNNs" class="headerlink" title="双向 RNN(Bidirectional RNNs)"></a>双向 RNN(Bidirectional RNNs)</h2><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd6367ftj1j30ul0l0n1f.jpg" alt="Snipaste_2020-03-25_12-58-00.png"></p>
-<p>如上图所示，如果我们只看到terribly的上文，我们会认为这是一个负面的词，但如果结合下文exciting，就会发现terribly是形容exciting的激烈程度，在这里是一个很正面的词，所以我们既要结合上文又要结合下文来处理这一问题。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd63ivtp2uj30op0iitbh.jpg" alt="Snipaste_2020-03-25_13-12-03.png"></p>
-<p>可知在双向 RNN 中的每个时间步 t 有:</p>
-<p> <span style="color:red">Forward RNN：</span> $\overrightarrow{h}^{(t)} = \text{RNN}_{\text{FW}} (\overrightarrow{h}^{(t-1)},x^{(t)})$</p>
-<p><span style="color:green">Backward RNN：</span> $\overleftarrow{h}^{(t)} = \text{RNN}_{\text{BW}}(\overleftarrow{h}^{(t+1)},x^{(t)})$</p>
-<p>上式中的 RNN ，可以是普通RNN，LSTM或GRU，而且通常正向和反向的RNN拥有不同的权重参数。</p>
-<p>然后将隐藏状态连接：$h^{(t)} = [\overrightarrow{h}^{(t)},\overleftarrow{h}^{(t)}]$ 将其传递给网络的下一部分。</p>
-<p> 注：</p>
+<p>Attention 机制不仅可以用于seq2seq，也可以用于其它结构和任务。一个 Attention 更一般的定义如下：</p>
+<blockquote>
+<p>给定一组向量值(value)和一个向量查询(query)，注意力机制是一种根据查询计算值的加权和的技术。</p>
+</blockquote>
+<p><strong>Attention 的一般步骤</strong>：</p>
 <ol>
-<li>双向 RNN 仅在你可以访问整个输入序列时才适用。并不适用于语言模型，因为语言模型只需知道左边的序列即可。</li>
-<li>如果可以访问整个序列，双向 RNN 可以作为默认使用。</li>
+<li><p>有向量值(values) $h_1,\dots,h_N \in \mathbb{R}^{d_1}$ 和 向量查询(query) $s \in \mathbb{R}^{d_2}$ 、</p>
+</li>
+<li><p>计算 attention scores $e \in \mathbb{R}^N$</p>
+</li>
+<li><p>求 softmax 得到 attention distribution $\alpha$:</p>
+<script type="math/tex; mode=display">
+\alpha=\operatorname{softmax}(e) \in \mathbb{R}^{N}</script></li>
+<li><p>用 attention distribution 来计算 values 的加权和：</p>
+<script type="math/tex; mode=display">
+\boldsymbol{a}=\sum_{i=1}^{N} \alpha_{i} \boldsymbol{h}_{i} \in \mathbb{R}^{d_{1}}</script><p>从而获得了 attention output $\boldsymbol{a}$，有时候也称为上下文向量(context vector)</p>
+<p>在计算第二步的时候，有多种方法因此有多种 attention 变体：</p>
+</li>
+<li><p>Basic dot-product attention：$e_i = s^T h_i \in \mathbb{R}$，<span style="color:red">注：此处假设 $d_1 = d_2$ </span></p>
+</li>
+<li>Multiplicative attention: $e_i = s^TWh_i \in \mathbb{R}$，其中 $W \in \mathbb{R}^{d_2 \times d_1}$ 是权值矩阵</li>
+<li>Additive attention：$e_i = v^T \tanh(W_1h_i +W_2s) \in \mathbb{R}$<ul>
+<li>其中 $W_1 \in \mathbb{R}^{d_3 \times d_1} ， W_2 \in \mathbb{R}^{d_3 \times d_2}$ 是权值矩阵，$v \in \mathbb{R}^{d_3}$ 是权值向量</li>
+<li>$d_3$ 是一个超参数</li>
+</ul>
+</li>
 </ol>
-<h2 id="多层-RNN"><a href="#多层-RNN" class="headerlink" title="多层 RNN"></a>多层 RNN</h2><p>RNN 仅在一个维度上延深，即时间维度上的展开。我们可以在另一个维度上延深，即通过应用多层 RNN。</p>
-<p>这允许网络学习更加复杂的表示，低层 RNN用以学习底层表示，高层的RNN 可以用来学习高层表示。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd65a4cc16j30os0i0mz5.jpg" alt="Snipaste_2020-03-25_14-12-54.png"></p>
-<p>有较好表现的 RNN 模型通常是多层的。例如，对于机器翻译，2到4层最适合编码器RNN，4层最适合解码器RNN。但在训练较深层的 RNN 时，需要 skip-connections/dense-connections。</p>
 <p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
@@ -684,8 +702,8 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/51f80686.html" rel="next" title="CNN IN NLP">
-                <i class="fa fa-chevron-left"></i> CNN IN NLP
+              <a href="/post/9994ec50.html" rel="next" title="RNN IN NLP">
+                <i class="fa fa-chevron-left"></i> RNN IN NLP
               </a>
             
           </div>
@@ -693,10 +711,6 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/4b37d30a.html" rel="prev" title="Attention Based Model">
-                Attention Based Model <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -874,7 +888,7 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RNN-IN-NLP"><span class="nav-text">RNN IN NLP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RNN-Language-Model"><span class="nav-text">RNN Language Model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型结构"><span class="nav-text">模型结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型优缺点"><span class="nav-text">模型优缺点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型训练"><span class="nav-text">模型训练</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模型的评估"><span class="nav-text">模型的评估</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度消失和梯度爆炸问题"><span class="nav-text">梯度消失和梯度爆炸问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LSTM-Long-Short-Term-Memory"><span class="nav-text">LSTM(Long Short-Term Memory)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GRU-Gated-Recurrent-Units"><span class="nav-text">GRU(Gated Recurrent Units)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#双向-RNN-Bidirectional-RNNs"><span class="nav-text">双向 RNN(Bidirectional RNNs)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多层-RNN"><span class="nav-text">多层 RNN</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Attention-Based-Model"><span class="nav-text">Attention Based Model</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Machine-Translation"><span class="nav-text">Machine Translation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#早期的机器翻译"><span class="nav-text">早期的机器翻译</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经机器翻译"><span class="nav-text">神经机器翻译</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#seq2seq模型"><span class="nav-text">seq2seq模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#训练-NMT"><span class="nav-text">训练 NMT</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解码方法"><span class="nav-text">解码方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NML的优缺点"><span class="nav-text">NML的优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#评估机器翻译"><span class="nav-text">评估机器翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attention"><span class="nav-text">Attention</span></a></li></ol></li></ol></div>
             
 
           </div>
