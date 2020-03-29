@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdamgc7v9qj30ut0lxju9.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdavu3d7xij31da0j9q7y.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdavyq44o6j312o0q2td7.jpg">
-<meta property="og:updated_time" content="2020-03-29T14:07:30.728Z">
+<meta property="og:updated_time" content="2020-03-29T14:26:46.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Attention Based Model">
 <meta name="twitter:description" content="Attention Based ModelMachine Translation早期的机器翻译 早期机器翻译是基于规则的，通过使用一个双语词典，将源语言的单词映射到目标语言对应的单词。  统计机器翻译：主要思想是从数据中学习一个概率模型。 假如要将法语翻译成英语。则需要找到一个在给定法语序列 $x$ 的条件下最合适的英文序列 $y$，即：  \text{argmax}_y P(y|x)通过贝叶斯定">
@@ -422,7 +422,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-29 22:07:30" itemprop="dateModified" datetime="2020-03-29T22:07:30+08:00">2020-03-29</time>
+                <time title="修改时间：2020-03-29 22:26:46" itemprop="dateModified" datetime="2020-03-29T22:26:46+08:00">2020-03-29</time>
               </span>
             
           
@@ -517,18 +517,18 @@ P(x,a|y)</script><p>其中a是对齐方式，即源语言句子 $x$ 和目标语
 <li>神经机器翻译是用单个神经网络来进行机器翻译</li>
 <li>其神经网络结构被称为 <strong>seq2seq</strong> ，它包括两个 RNNs</li>
 </ol>
-<h3 id="seq2seq模型"><a href="#seq2seq模型" class="headerlink" title="seq2seq模型"></a>seq2seq模型</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg" alt="Snipaste_2020-03-25_16-25-45.png"></p>
+<h3 id="seq2seq模型"><a href="#seq2seq模型" class="headerlink" title="seq2seq模型"></a>seq2seq模型</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd694bx0vsj30us0kgq79.jpg" alt="seq2seq模型"></p>
 <p style="color:red">seq2seq 除了用于机器翻译，也可以用于其他方面，如文本摘要，对话系统，语法分析，代码生成</p>
 
-<h3 id="训练-NMT"><a href="#训练-NMT" class="headerlink" title="训练 NMT"></a>训练 NMT</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd9x1pbkq6j30uw0m4n0q.jpg" alt="image-20200328202816387.png"></p>
+<h3 id="训练-NMT"><a href="#训练-NMT" class="headerlink" title="训练 NMT"></a>训练 NMT</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd9x1pbkq6j30uw0m4n0q.jpg" alt="训练 NMT"></p>
 <h4 id="解码方法"><a href="#解码方法" class="headerlink" title="解码方法"></a>解码方法</h4><p><strong>贪婪解码(Greedy Decoding)</strong>：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdakh1tk7cj30ep0ad75q.jpg" alt="image-20200328210623603.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdakh1tk7cj30ep0ad75q.jpg" alt="Greedy Decoding"></p>
 <p>即在每一步中取最可能的单词。存在的问题是可能当前的最大概率的单词对于翻译整个句子来讲不一定是最优的选择，但由于每次我们都做greedy的选择我们没机会选择另一条整体最优的路径。</p>
 <p>为解决这一问题，一个常用的方法是<strong>beam search decoding</strong>。其<strong>主要思想</strong>是，其基本思想是在decoder的每一步，我们不仅仅是取概率最大的单词，而是保存k个当前最有可能的翻译假设，其中k称作beam size，通常在5到10之间。</p>
 <p>假设 $y_1,\dots,y_t$ 的分数是其概率的对数来表示，即</p>
 <script type="math/tex; mode=display">
 \operatorname{score}\left(y_{1}, \ldots, y_{t}\right)=\log P_{\mathrm{LM}}\left(y_{1}, \ldots, y_{t} | x\right)=\sum_{i=1}^{t} \log P_{\mathrm{LM}}\left(y_{i} | y_{1}, \ldots, y_{i-1}, x\right)</script><p>分数越高越好。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdamgc7v9qj30ut0lxju9.jpg" alt="Snipaste_2020-03-29_11-09-00.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdamgc7v9qj30ut0lxju9.jpg" alt="Beam search decoding"></p>
 <p>从上图可知当 Beam size = k = 2 时，每一步都会找得分最高的 2 个，直到最后，再进行回溯。</p>
 <p>编码结束，一般是产生了<end>标识符，但每个假设产生<end>标识符的时间不同，所以一般整个结束是在到了时刻 T(T是一个预定义的截止值)或者产生了至少 n 个完整假设。(n 是一个预定义的截止值)。</end></end></p>
 <p><strong>当我们有一组完全假设，如何选择分数最高的那一个？</strong></p>
@@ -579,8 +579,8 @@ P(x,a|y)</script><p>其中a是对齐方式，即源语言句子 $x$ 和目标语
 </ol>
 <h2 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h2><p>seq2seq 结构的瓶颈问题：在编码阶段，需要对所输入的所有信息都encode到encoder的最后一个hidden state上，这通常是不现实的，因此引入Attention来解决这个瓶颈。</p>
 <p>主要思想：在解码器的每个步骤中，使用与编码器的直接连接来聚焦源序列的特定部分。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavu3d7xij31da0j9q7y.jpg" alt="Snipaste_2020-03-29_16-32-27.png"></p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavyq44o6j312o0q2td7.jpg" alt="Snipaste_2020-03-29_16-38-16.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavu3d7xij31da0j9q7y.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdavyq44o6j312o0q2td7.jpg" alt="seq2seq with attention"></p>
 <ol>
 <li><ul>
 <li><p>先用解码器的每个状态于编码器的各状态做点积得到 Attention scores</p>
@@ -662,7 +662,7 @@ e^{t}=\left[s_{t}^{T} h_{1}, \ldots, s_{t}^{T} h_{N}\right] \in \mathbb{R}^{N}</
 </ul>
 </li>
 </ol>
-<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/4b37d30a.html">https://gongjintao.com/post/4b37d30a.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -1427,6 +1427,46 @@ e^{t}=\left[s_{t}^{T} h_{1}, \ldots, s_{t}^{T} h_{N}\right] \in \mathbb{R}^{N}</
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 

@@ -127,7 +127,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd6367ftj1j30ul0l0n1f.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd63ivtp2uj30op0iitbh.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gd65a4cc16j30os0i0mz5.jpg">
-<meta property="og:updated_time" content="2020-03-29T14:08:50.691Z">
+<meta property="og:updated_time" content="2020-03-29T14:32:12.506Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RNN IN NLP">
 <meta name="twitter:description" content="RNN IN NLPRNN Language Model模型结构  首先是词嵌入层。  e^{(t)} = Ex^{(t)}其中$x^{(t)} \in \mathbb{R}^{|V|}$代表单词或单词的one-hot编码。  然后是隐藏层单元，每个隐藏层单元的状态都等于对应的词向量的加权再加上其前一个隐藏层状态的加权之和。再通过激活函数。即：  \boldsymbol{h}^{(t)}=\sig">
@@ -433,7 +433,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-03-29 22:08:50" itemprop="dateModified" datetime="2020-03-29T22:08:50+08:00">2020-03-29</time>
+                <time title="修改时间：2020-03-29 22:32:12" itemprop="dateModified" datetime="2020-03-29T22:32:12+08:00">2020-03-29</time>
               </span>
             
           
@@ -497,7 +497,7 @@
       
 
       
-        <h1 id="RNN-IN-NLP"><a href="#RNN-IN-NLP" class="headerlink" title="RNN IN NLP"></a>RNN IN NLP</h1><h2 id="RNN-Language-Model"><a href="#RNN-Language-Model" class="headerlink" title="RNN Language Model"></a>RNN Language Model</h2><h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3xdmx4jtj30v30nadjx.jpg" alt="Snipaste_2020-03-23_16-08-01.png"></p>
+        <h1 id="RNN-IN-NLP"><a href="#RNN-IN-NLP" class="headerlink" title="RNN IN NLP"></a>RNN IN NLP</h1><h2 id="RNN-Language-Model"><a href="#RNN-Language-Model" class="headerlink" title="RNN Language Model"></a>RNN Language Model</h2><h3 id="模型结构"><a href="#模型结构" class="headerlink" title="模型结构"></a>模型结构</h3><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3xdmx4jtj30v30nadjx.jpg" alt="RNN Language Model"></p>
 <ol>
 <li><p>首先是词嵌入层。</p>
 <script type="math/tex; mode=display">
@@ -541,21 +541,21 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 <p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2fqfij30ui0mitbs.jpg" alt></p>
 </li>
 </ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2hzqbj30u40me77e.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3yx2hzqbj30u40me77e.jpg" alt="Training"></p>
 <ol>
 <li><p>模型的反向传播：</p>
 <p>每一个时间步的损失函数对 $W_h$ 求导结果为（这是多变量求导的链式法则)：</p>
 <script type="math/tex; mode=display">
-\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zb7tr6ej30tk0mdacq.jpg" alt="Snipaste_2020-03-23_17-15-11.png"></p>
+\frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}=\left.\sum_{i=1}^{t} \frac{\partial J^{(t)}}{\partial \boldsymbol{W}_{\boldsymbol{h}}}\right|_{(i)}</script><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zb7tr6ej30tk0mdacq.jpg" alt="Backpropagation"></p>
 </li>
 </ol>
 <h3 id="模型的评估"><a href="#模型的评估" class="headerlink" title="模型的评估"></a>模型的评估</h3><p>通常使用<strong>困惑度</strong>来衡量语言模型的好坏，主要思想是，句子概率越大，困惑度越小，模型越好：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zhoyi9hj30m506xq3x.jpg" alt="Snipaste_2020-03-23_17-21-18.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zhoyi9hj30m506xq3x.jpg" alt></p>
 <p>RNN模型中困惑度也等于交叉熵损失函数的指数:</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zjqqvfbj30iq03e3ys.jpg" alt="Snipaste_2020-03-23_17-23-26.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd3zjqqvfbj30iq03e3ys.jpg" alt></p>
 <p>而RNN模型对比 n-gram 模型有更小的困惑度。</p>
 <h2 id="梯度消失和梯度爆炸问题"><a href="#梯度消失和梯度爆炸问题" class="headerlink" title="梯度消失和梯度爆炸问题"></a>梯度消失和梯度爆炸问题</h2><p><strong>直觉</strong>：</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd47d8mo64j30ud0m9wha.jpg" alt="Snipaste_2020-03-23_21-53-52.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd47d8mo64j30ud0m9wha.jpg" alt></p>
 <p><strong>推导</strong>：</p>
 <p>因为：$\boldsymbol{h}^{(t)}=\sigma\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)$ </p>
 <p>因此：$\frac{\partial \boldsymbol{h}^{(t)}}{\partial \boldsymbol{h}^{(t-1)}}=\operatorname{diag}\left(\sigma^{\prime}\left(\boldsymbol{W}_{h} \boldsymbol{h}^{(t-1)}+\boldsymbol{W}_{x} \boldsymbol{x}^{(t)}+\boldsymbol{b}_{1}\right)\right) \boldsymbol{W}_{h}$</p>
@@ -582,7 +582,7 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 \hspace{1em}\hat{\mathbf{g}} \leftarrow \frac{\text { threshold }}{\|\mathbf{g}\|} \hat{\mathbf{g}} \\
 \text { end if }
 \end{array}</script><p>如图所示:</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5batccbxj30iu09wq5s.jpg" alt="Snipaste_2020-03-24_20-55-10.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5batccbxj30iu09wq5s.jpg" alt></p>
 <p><strong>梯度消失问题的解决办法：</strong></p>
 <p>主要问题是 RNN 很难学会多个时间段内保存的信息。在一个普通的 RNN 网络中，隐藏层状态一直被下式重写：</p>
 <script type="math/tex; mode=display">
@@ -596,10 +596,10 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 <li>门也是长为 $n$ 的向量。</li>
 <li>在每一个时间步，门的每个元素可以是打开(1)、关闭(0)或者介于两者之间的某个位置。</li>
 <li><p>门是动态的：其值是根据上下文计算的。</p>
-<p>假设输入序列是 $x^{(t)}$ ，则LSTM的公式如下：<br><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5dn7j9dkj30tq0i7jw4.jpg" alt="Snipaste_2020-03-24_22-16-34.png"><br><strong>LSTM结构图：</strong></p>
+<p>假设输入序列是 $x^{(t)}$ ，则LSTM的公式如下：<br><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5dn7j9dkj30tq0i7jw4.jpg" alt="LSTM 公式"><br><strong>LSTM结构图：</strong></p>
 </li>
 </ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5du57mbjj30t00qn7a0.jpg" alt="Snipaste_2020-03-24_22-23-14.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5du57mbjj30t00qn7a0.jpg" alt="LSTM"></p>
 <ol>
 <li>新的记忆单元：$\tilde{c}_{t}$ 通过将新的输入 $x_{t}$ 与代表之前的 context 的隐藏层单元 $h_{（t-1）}$ 结合成新的记忆</li>
 <li>输入门：$i_t$ 决定新的信息是否由保留的价值</li>
@@ -609,7 +609,7 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 </ol>
 <p>LSTM不能保证不存在消失/爆炸梯度，但它确实为模型提供了一种更容易学习远程依赖关系的方法。</p>
 <h2 id="GRU-Gated-Recurrent-Units"><a href="#GRU-Gated-Recurrent-Units" class="headerlink" title="GRU(Gated Recurrent Units)"></a>GRU(Gated Recurrent Units)</h2><p>对 LSTM 做了简单的改变。每个时间步 $t$ 只有输入 $x^{(t)}$ 和 $h^{(t)}$ 。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5f06z6kkj30rg0drdjc.jpg" alt="Snipaste_2020-03-24_23-03-27.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5f06z6kkj30rg0drdjc.jpg" alt="GRU 公式"></p>
 <ol>
 <li>新的记忆生成：$\tilde{h}_t$ 是由一个新的输入 $x_t$ 和上一个隐藏状态 $h_{t-1}$ 组合而成</li>
 <li>复位门：复位信号 $r_t$ 负责确定 $h_{t-1}$ 对 $ \tilde{h}_t $ 的重要程度。如果复位信号发现 $h_{t-1}$ 对于新的记忆 $ \tilde{h}_t $ 是无关的，则它能够完全减小过去的隐藏状态</li>
@@ -618,18 +618,18 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 <p>GRU的结构图如下：</p>
 </li>
 </ol>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5y6x24l0j30sc0e2acz.jpg" alt="Snipaste_2020-03-25_10-04-07.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5y6x24l0j30sc0e2acz.jpg" alt="GRU"></p>
 <p style="color:red">梯度消失仅仅局限于RNN结构吗？实际上对于深度神经网络，尤其层数较多时，由于链式法则以及非线性函数的选择，梯度消失问题也会出现，导致底层的layer学习速度很慢，只不过由于RNN中由于不断的乘以相同的权重矩阵导致其梯度消失问题更显著。</p>
 
 <p style="color:red">对于非RNN的深度神经网络如前馈神经网络与卷积神经网络，为了解决梯度消失问题，通常可以引入更直接的联结使得梯度更容易传递。</p>
 
 <p>例如在ResNet中，通过引入与前层输入一样的联结使得信息更有效的流动，这使得我们可以能够训练更深层的模型。这一联结被称作Residual Connection或Skip Connection</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70qf1mj30e9087751.jpg" alt></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70qf1mj30e9087751.jpg" alt="Skip Connection"></p>
 <p>在DenseNet中，我们可以将几层之间全部建立直接联结，形成dense connection。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70t78fj30bk09f40m.jpg" alt></p>
-<h2 id="双向-RNN-Bidirectional-RNNs"><a href="#双向-RNN-Bidirectional-RNNs" class="headerlink" title="双向 RNN(Bidirectional RNNs)"></a>双向 RNN(Bidirectional RNNs)</h2><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd6367ftj1j30ul0l0n1f.jpg" alt="Snipaste_2020-03-25_12-58-00.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd5z70t78fj30bk09f40m.jpg" alt="Dense connection"></p>
+<h2 id="双向-RNN-Bidirectional-RNNs"><a href="#双向-RNN-Bidirectional-RNNs" class="headerlink" title="双向 RNN(Bidirectional RNNs)"></a>双向 RNN(Bidirectional RNNs)</h2><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd6367ftj1j30ul0l0n1f.jpg" alt></p>
 <p>如上图所示，如果我们只看到terribly的上文，我们会认为这是一个负面的词，但如果结合下文exciting，就会发现terribly是形容exciting的激烈程度，在这里是一个很正面的词，所以我们既要结合上文又要结合下文来处理这一问题。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd63ivtp2uj30op0iitbh.jpg" alt="Snipaste_2020-03-25_13-12-03.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd63ivtp2uj30op0iitbh.jpg" alt="Bidirectional RNNs"></p>
 <p>可知在双向 RNN 中的每个时间步 t 有:</p>
 <p> <span style="color:red">Forward RNN：</span> $\overrightarrow{h}^{(t)} = \text{RNN}_{\text{FW}} (\overrightarrow{h}^{(t-1)},x^{(t)})$</p>
 <p><span style="color:green">Backward RNN：</span> $\overleftarrow{h}^{(t)} = \text{RNN}_{\text{BW}}(\overleftarrow{h}^{(t+1)},x^{(t)})$</p>
@@ -642,9 +642,9 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
 </ol>
 <h2 id="多层-RNN"><a href="#多层-RNN" class="headerlink" title="多层 RNN"></a>多层 RNN</h2><p>RNN 仅在一个维度上延深，即时间维度上的展开。我们可以在另一个维度上延深，即通过应用多层 RNN。</p>
 <p>这允许网络学习更加复杂的表示，低层 RNN用以学习底层表示，高层的RNN 可以用来学习高层表示。</p>
-<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd65a4cc16j30os0i0mz5.jpg" alt="Snipaste_2020-03-25_14-12-54.png"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gd65a4cc16j30os0i0mz5.jpg" alt="Multi-layer RNNs"></p>
 <p>有较好表现的 RNN 模型通常是多层的。例如，对于机器翻译，2到4层最适合编码器RNN，4层最适合解码器RNN。但在训练较深层的 RNN 时，需要 skip-connections/dense-connections。</p>
-<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/9994ec50.html">https://gongjintao.com/post/9994ec50.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -1413,6 +1413,46 @@ J(\theta)=\frac{1}{T} \sum_{t=1}^{T} J^{(t)}(\theta)=\frac{1}{T} \sum_{t=1}^{T}-
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
