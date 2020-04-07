@@ -102,18 +102,39 @@
 
 
 
-  <meta name="description" content="问题描述 　每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 9 位数字、1 位识别码和 3 位分隔符，其规定格式如 “x-xxx-xxxxx-x”，其中符号“-” 是分隔符（键盘上的减号），最后一位是识别码，例如 0-670-82162-4 就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 0 代表英语；第一个分隔符 “-” 之后的三位数字代表出">
-<meta name="keywords" content="C&#x2F;C++">
+  <meta name="description" content="目前为止，我们已经可以对单词有基本的表示，如 Word2vec，Glove，fastText；但是这些方法都存在两个问题：  无论单词出现在何种上下文环境中，对这些单词都只有一种表示 可能需要非常细微的词义消歧   我们对一个单词只有一个表示，但是单词有不同的方面，包括语义、句法行为和语域/内涵  ELMo主要思想：想得到在上下文中词的含义，但是标准的学习任务 RNN 只能在已标记小数据集上进行">
+<meta name="keywords" content="NLP">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CCF试题库201312-2————ISBN号码">
-<meta property="og:url" content="https://gongjintao.com/post/df46e976.html">
+<meta property="og:title" content="Transformer Based">
+<meta property="og:url" content="https://gongjintao.com/post/9436d27.html">
 <meta property="og:site_name" content="GongJintao&#39; Blog">
-<meta property="og:description" content="问题描述 　每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 9 位数字、1 位识别码和 3 位分隔符，其规定格式如 “x-xxx-xxxxx-x”，其中符号“-” 是分隔符（键盘上的减号），最后一位是识别码，例如 0-670-82162-4 就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 0 代表英语；第一个分隔符 “-” 之后的三位数字代表出">
+<meta property="og:description" content="目前为止，我们已经可以对单词有基本的表示，如 Word2vec，Glove，fastText；但是这些方法都存在两个问题：  无论单词出现在何种上下文环境中，对这些单词都只有一种表示 可能需要非常细微的词义消歧   我们对一个单词只有一个表示，但是单词有不同的方面，包括语义、句法行为和语域/内涵  ELMo主要思想：想得到在上下文中词的含义，但是标准的学习任务 RNN 只能在已标记小数据集上进行">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-02-22T08:54:27.322Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxnnpnnxj30k30l9dj5.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxr79d5yj30ya0kxq7z.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdjrcmrybij31661q7du2.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdjth61i5ij30l00d6aau.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdjtlchi0mj30xu0m1q64.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdjv840ss5j30qh1fktfj.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdk7tvcqpmj30fz0iuwht.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdkekvybs3j30740aa3yp.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdkyi5xx3rj30wu0l4q4c.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdkzbwfjckj30rd0dwjs8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl039rspbj30rz0iymyr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl039rspbj30rz0iymyr.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl0lwb8vjj30jd0l8mxl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl0lw2u33j30ji09imxe.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1aj4ej5j30bb0emmyk.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1fgp9dwj30m50dw3z4.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1kuk5jdj30ms0bejs8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1yewagvj30wm0hjdhl.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl2927n4nj30xz0k4n0p.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdl999t9tcj313y0m1q53.jpg">
+<meta property="og:updated_time" content="2020-04-07T08:32:17.526Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CCF试题库201312-2————ISBN号码">
-<meta name="twitter:description" content="问题描述 　每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 9 位数字、1 位识别码和 3 位分隔符，其规定格式如 “x-xxx-xxxxx-x”，其中符号“-” 是分隔符（键盘上的减号），最后一位是识别码，例如 0-670-82162-4 就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 0 代表英语；第一个分隔符 “-” 之后的三位数字代表出">
+<meta name="twitter:title" content="Transformer Based">
+<meta name="twitter:description" content="目前为止，我们已经可以对单词有基本的表示，如 Word2vec，Glove，fastText；但是这些方法都存在两个问题：  无论单词出现在何种上下文环境中，对这些单词都只有一种表示 可能需要非常细微的词义消歧   我们对一个单词只有一个表示，但是单词有不同的方面，包括语义、句法行为和语域/内涵  ELMo主要思想：想得到在上下文中词的含义，但是标准的学习任务 RNN 只能在已标记小数据集上进行">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxnnpnnxj30k30l9dj5.jpg">
 
 
 
@@ -123,7 +144,7 @@
 
   
   
-  <link rel="canonical" href="https://gongjintao.com/post/df46e976">
+  <link rel="canonical" href="https://gongjintao.com/post/9436d27">
 
 
 
@@ -133,7 +154,7 @@
   };
 </script>
 
-  <title>CCF试题库201312-2————ISBN号码 | GongJintao' Blog</title>
+  <title>Transformer Based | GongJintao' Blog</title>
   
 
 
@@ -357,7 +378,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/post/df46e976.html">
+    <link itemprop="mainEntityOfPage" href="https://gongjintao.com/post/9436d27.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Gong Jintao">
@@ -374,7 +395,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">CCF试题库201312-2————ISBN号码
+          <h2 class="post-title" itemprop="name headline">Transformer Based
 
               
             
@@ -400,7 +421,7 @@
                 
               
 
-              <time title="创建时间：2018-08-12 19:24:33" itemprop="dateCreated datePublished" datetime="2018-08-12T19:24:33+08:00">2018-08-12</time>
+              <time title="创建时间：2020-03-31 10:00:46" itemprop="dateCreated datePublished" datetime="2020-03-31T10:00:46+08:00">2020-03-31</time>
             </span>
           
 
@@ -415,7 +436,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-02-22 16:54:27" itemprop="dateModified" datetime="2020-02-22T16:54:27+08:00">2020-02-22</time>
+                <time title="修改时间：2020-04-07 16:32:17" itemprop="dateModified" datetime="2020-04-07T16:32:17+08:00">2020-04-07</time>
               </span>
             
           
@@ -429,7 +450,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/CCF试题库/" itemprop="url" rel="index"><span itemprop="name">CCF试题库</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/NLP/" itemprop="url" rel="index"><span itemprop="name">NLP</span></a></span>
 
                 
                 
@@ -447,8 +468,8 @@
                 </span>
             
                 <span class="post-meta-item-text">评论数：</span>
-                <a href="/post/df46e976.html#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/post/df46e976.html" itemprop="commentCount"></span>
+                <a href="/post/9436d27.html#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/post/9436d27.html" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -479,32 +500,176 @@
       
 
       
-        <h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><blockquote>
-<p>　每一本正式出版的图书都有一个 ISBN 号码与之对应，ISBN 码包括 9 位数字、1 位识别码和 3 位分隔符，其规定格式如 “x-xxx-xxxxx-x”，其中符号“-” 是分隔符（键盘上的减号），最后一位是识别码，例如 0-670-82162-4 就是一个标准的 ISBN 码。ISBN 码的首位数字表示书籍的出版语言，例如 0 代表英语；第一个分隔符 “-” 之后的三位数字代表出版社，例如 670 代表维京出版社；第二个分隔之后的五位数字代表该书在出版社的编号；最后一位为识别码。<br>识别码的计算方法如下：<a id="more"></a><br>首位数字乘以 1 加上次位数字乘以 2…… 以此类推，用所得的结果 mod 11，所得的余数即为识别码，如果余数为 10，则识别码为大写字母 X。例如 ISBN 号码 0-670-82162-4 中的识别码 4 是这样得到的：对 067082162 这 9 个数字，从左至右，分别乘以 1，2，…，9，再求和，即 0×1+6×2+……+2×9=158，然后取 158 mod 11 的结果 4 作为识别码。<br>编写程序判断输入的 ISBN 号码中识别码是否正确，如果正确，则仅输出 “Right”；如果错误，则输出是正确的 ISBN 号码。</p>
+        <p> 目前为止，我们已经可以对单词有基本的表示，如 Word2vec，Glove，fastText；但是这些方法都存在两个问题：</p>
+<ol>
+<li>无论单词出现在何种上下文环境中，对这些单词都只有一种表示<ul>
+<li>可能需要非常细微的词义消歧</li>
+</ul>
+</li>
+<li>我们对一个单词只有一个表示，但是单词有不同的方面，包括语义、句法行为和语域/内涵</li>
+</ol>
+<h2 id="ELMo"><a href="#ELMo" class="headerlink" title="ELMo"></a>ELMo</h2><p>主要思想：想得到在上下文中词的含义，但是标准的学习任务 RNN 只能在已标记小数据集上进行。所以 pre-ELMo 提出了一种将双向语言模型中的预训练上下文嵌入加入到NLP系统中的通用半监督方法，并将其应用于序列标记任务  </p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxnnpnnxj30k30l9dj5.jpg" alt="pre-ELMo"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxr79d5yj30ya0kxq7z.jpg" alt="tagLM"></p>
+<p>ELMo(Embeddings from Language Models) 不同于一般的词嵌入，其单词表示是整个输入句子的函数。</p>
+<h4 id="双向语言模型-biLM"><a href="#双向语言模型-biLM" class="headerlink" title="双向语言模型(biLM)"></a>双向语言模型(biLM)</h4><p>给定含 $N$ 个token的序列：$(t_1,t_2,\dots,t_N)$ </p>
+<p>前向语言模型通过给定前面的k-1个位置的token序列计算第k个token的出现的概率:</p>
+<script type="math/tex; mode=display">
+p\left(t_{1}, t_{2}, \ldots, t_{N}\right)=\prod_{k=1}^{N} p\left(t_{k} | t_{1}, t_{2}, \ldots, t_{k-1}\right)</script><p>后向语言模型类似于前向，区别在于将序列反转：</p>
+<script type="math/tex; mode=display">
+p\left(t_{1}, t_{2}, \ldots, t_{N}\right)=\prod_{k=1}^{N} p\left(t_{k} | t_{k+1}, t_{k+2}, \ldots, t_{N}\right)</script><p>biLM训练过程中的目标就是最大化:</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+\sum_{k=1}^{N}\left(\log p\left(t_{k} | t_{1}, \ldots, t_{k-1} ; \Theta_{x}, \vec{\Theta}_{L S T M}, \Theta_{s}\right)\right. \\
+\left.\quad+\log p\left(t_{k} | t_{k+1}, \ldots, t_{N} ; \Theta_{x}, \overleftarrow{\Theta}_{L S T M}, \Theta_{s}\right)\right)
+\end{array}</script><p>ELMo 对于每一个token $t_k$  ，通过一个 L 层的 biLM 来计算 2L+1 个表示：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+R_{k} &=\left\{\mathbf{x}_{k}^{L M}, \overrightarrow{\mathbf{h}}_{k, j}^{L M}, \overleftarrow{\mathbf{h}}_{k, j}^{L M} | j=1, \ldots, L\right\} \\
+&=\left\{\mathbf{h}_{k, j}^{L M} | j=0, \ldots, L\right\}
+\end{aligned}</script><p>其中 $\overrightarrow{\mathbf{h}}_{k, j}^{L M}$ 指前向 LM 第 j 层 LSTM 的输出，同理 $\overleftarrow{\mathbf{h}}_{k, j}^{L M}$ 是指反向 LM 第 j 层 LSTM 的输出。则 $\mathbf{h}_{k, j}^{L M} = \{\overrightarrow{\mathbf{h}}_{k, j}^{L M};\overleftarrow{\mathbf{h}}_{k, j}^{L M}\}$  即每个 biLM 层的输出。$\mathbf{x}_k^{LM}$ 是对token进行直接编码的结果(这里是字符通过CNN编码)。</p>
+<p>然后 ELMo 将所有层的输出 R 压缩为单个向量</p>
+<script type="math/tex; mode=display">
+\mathbf{E L M o}_{k}=E\left(R_{k} ; \mathbf{\Theta}_{e}\right)</script><p>最简单的压缩方法是取最上层的结果做为token的表示</p>
+<script type="math/tex; mode=display">
+E\left(R_{k}\right)=\mathbf{h}_{k, L}^{L M}</script><p>更通用的做法是通过一些参数来联合所有层的信息:</p>
+<script type="math/tex; mode=display">
+\mathbf{E} \mathbf{L} \mathbf{M} \mathbf{o}_{k}^{\text {task}}=E\left(R_{k} ; \Theta^{\text {task}}\right)=\gamma^{\text {task}} \sum_{j=0}^{L} s_{j}^{\text {task}} \mathbf{h}_{k, j}^{L M}</script><p>上式中 $s^{task}$ 是 softmax 出来的结果，$\gamma$ 是 scalar 参数，可以让模型放缩整个 ELMo 向量。</p>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
+<li><p>最简版本</p>
+<p>先固定一个权重, 构成一个 ELMO 向量 $ELMO^{task}$ , 然后联结最初始词向量(也就是通过字符卷积获得的向量) $x_k$ 得到 $\left[x_{k} ; E L M O_{k}^{\text {task}}\right]$ 然后将这个向量输入到任务的 RNN 模型中去. 然后在训练中一同训练权重因子。</p>
+</li>
+<li><p>加强版</p>
+<p>我们可以在output处也加一个这样的向量,即 $[h_k;ELMO_k^{task}]$  不同是,这里应该采用与输入中不同的权重因子.</p>
+</li>
+<li><p>最终版</p>
+<p>可以在 ELMo 模型中加入 dropout, 以及采用 L2 loss的方法来提升模型。并且, 这里的 L2 项的系数 $\lambda$ 越大, 越有取各层平均值的意思。越小, 越可以发挥各个层之间的不同带来的效果. 但是并不是说, 越小越好。</p>
+</li>
+</ul>
+<h4 id="预训练过程："><a href="#预训练过程：" class="headerlink" title="预训练过程："></a>预训练过程：</h4><ol>
+<li>使用 2 层 biLSTM</li>
+<li>使用 character CNN 来初始化词表示 <ul>
+<li>2048 char n-gram filters and 2 highway layers, 512 dim projection</li>
+</ul>
+</li>
+<li>使用 4096 维隐藏层状态和 512 的映射维度</li>
+<li><p>使用 residual 联结 (残差连接)</p>
+<h4 id="ELMo：不同层的权值"><a href="#ELMo：不同层的权值" class="headerlink" title="ELMo：不同层的权值"></a>ELMo：不同层的权值</h4></li>
+<li><p>较低层更适合较低层次的语法</p>
+<ul>
+<li>词性标注，句法依赖，命名实体识别</li>
+</ul>
+</li>
+<li>高层次更适合较高层次的语义<ul>
+<li>情感，语义标注，问答系统</li>
+</ul>
+</li>
+</ol>
+<h2 id="GPT"><a href="#GPT" class="headerlink" title="GPT"></a>GPT</h2><h2 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h2><h3 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h3><p>想要模型并行化，但本质上 RNN 是串行的。除了 GRU 和 LSTMs，RNNs 任然需要 attention 机制来解决长期依赖问题。<strong>如果 attention 可以让我们到达任意时刻的状态，或许我们可以仅仅使用 attention 而不需要 RNN</strong></p>
+<h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><ol>
+<li>Non-recurrent sequence-to-sequence encoder-decoder model </li>
+<li>任务：在平行语料库上的机器翻译问题</li>
+<li>预测每个翻译的词语</li>
+<li>损失函数是softmax分类器上的标准交叉熵误差</li>
+</ol>
+<p>整体结构图如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdjrcmrybij31661q7du2.jpg" alt="Transformer" style="zoom: 25%;"></p>
+<h3 id="详解"><a href="#详解" class="headerlink" title="详解"></a>详解</h3><p>Transformer 本质上是一个 encoder-decoder 模型，如下图所示：运用在机器翻译中的 Transformer</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdjth61i5ij30l00d6aau.jpg" alt></p>
+<p>其 Encoders 包含 6 个 block，每个 block 的结构是相同的，仅权值不同；Decoders 与 Encoders 类似，但其中的 block 与之有细微差别。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdjtlchi0mj30xu0m1q64.jpg" alt="undefined"></p>
+<h4 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h4><p>Encoder的每个 block 又可分解成两个部分：</p>
+<ol>
+<li>Multihead attention</li>
+<li>2 层的前馈神经网络(带有 ReLU 激活函数)</li>
+</ol>
+<p>而这两个步骤中每个都包含如下操作：</p>
+<ul>
+<li>残差连接 (Residual connection)</li>
+<li>规范化 LayerNorm(x + Sublayer(x))</li>
+</ul>
+<p>LayerNorm 可以将输入变成均值为 0 方差为 1 的数据。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdjv840ss5j30qh1fktfj.jpg" alt="Encoder" style="zoom: 33%;"></p>
+<p><span style="color:red">（为了方便残差连接，模型的所有子层和嵌入层的输出都是 512 维）</span></p>
+<h4 id="Decoder"><a href="#Decoder" class="headerlink" title="Decoder"></a>Decoder</h4><p>Decoder 中的每个 block 除了有 Encoder 的block 的两个子层，参残差连接和规范化之外，有以下两点改变：</p>
+<ol>
+<li>屏蔽解码器的自注意力机制对先前产生的输出的影响，<strong>该屏蔽可以确保位置 $i$ 的预测只能依赖于小于 $i$ 的位置处的已知输出。</strong></li>
+<li>中间插入了一个 Encoder-Decoder Attention 的子层。其 queries 来自上一层，而 keys 和 values 来自 encoders 的输出。</li>
+</ol>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdk7tvcqpmj30fz0iuwht.jpg" alt="Decoder" style="zoom: 80%;"></p>
+<h4 id="Attention"><a href="#Attention" class="headerlink" title="Attention"></a>Attention</h4><blockquote>
+<p>Attention 机制可以描述为将 queries 和一组键值对 $(k-v)$ 映射到输出，其中$q,k,v $都是向量.</p>
 </blockquote>
-<h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><blockquote>
-<p>输入只有一行，是一个字符序列，表示一本书的 ISBN 号码（保证输入符合 ISBN 号码的格式要求）。</p>
+<h5 id="Dot-Product-Attention"><a href="#Dot-Product-Attention" class="headerlink" title="Dot-Product Attention"></a>Dot-Product Attention</h5><script type="math/tex; mode=display">
+A(q, K, V)=\sum_{i} \frac{e^{q \cdot k_{i}}}{\sum_{j} e^{q \cdot k_{j}}} v_{i}</script><p>其矩阵表示为：</p>
+<script type="math/tex; mode=display">
+A(Q, K, V)=\operatorname{softmax}\left(Q K^{T}\right) V</script><p>其中 $q$ 和 $k$ 有相同的维度 $d_k$；$v$ 的维度是 $d_v$。所以最后的维度是</p>
+<script type="math/tex; mode=display">
+\left[|Q| \times d_{k}\right] \times\left[d_{k} \times|K|\right] \times\left[|K| \times d_{v}\right]</script><p>即 $|Q| \times d_v$</p>
+<h5 id="Scaled-Dot-Product-Attention"><a href="#Scaled-Dot-Product-Attention" class="headerlink" title="Scaled Dot-Product Attention"></a>Scaled Dot-Product Attention</h5><p>Dot-Product Attention 存在的问题：当维度 $d_k$ 变大，会导致 $q^Tk$  的方差会增大 $\longrightarrow $ softmax 里的一些值变大 $\longrightarrow$ softmax 变得 $\longrightarrow$ 其梯度变得更小</p>
+<p>解决办法就是用向量的长度做放缩：</p>
+<script type="math/tex; mode=display">
+A(Q, K, V)=\operatorname{softmax}\left(\frac{Q K^{T}}{\sqrt{d_{k}}}\right) V</script><p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdkekvybs3j30740aa3yp.jpg" alt="Scaled Dot-Product Attention"></p>
+<h5 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h5><blockquote>
+<p>这一层可以帮助 encoder 在编码一个特定单词时，可以关注输入序列的其他单词。</p>
 </blockquote>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><blockquote>
-<p>输出一行，假如输入的 ISBN 号码的识别码正确，那么输出 “Right”，否则，按照规定的格式，输出正确的 ISBN 号码（包括分隔符 “-”）。       </p>
-</blockquote>
-<h3 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h3><blockquote>
-<p>0-670-82162-4</p>
-</blockquote>
-<h3 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h3><blockquote>
-<p>Right</p>
-</blockquote>
-<h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入"></a>样例输入</h3><blockquote>
-<p>0-670-82162-0</p>
-</blockquote>
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出"></a>样例输出</h3><blockquote>
-<p>0-670-82162-4</p>
-</blockquote>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><blockquote>
-<p>因为位数规定好了，所以算数比较简单，然后再进行判断即可。</p>
-</blockquote>
-<h3 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 13</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> s[N];</span><br><span class="line">	<span class="keyword">int</span> i,sum;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;s);</span><br><span class="line">	sum=(s[<span class="number">0</span>]-<span class="string">'0'</span>)*<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">2</span>;i&lt;=<span class="number">4</span>;i++)&#123;</span><br><span class="line">		sum+=(s[i]-<span class="string">'0'</span>)*i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">6</span>;i&lt;=<span class="number">10</span>;i++)&#123;</span><br><span class="line">		sum+=(s[i]-<span class="string">'0'</span>)*(i<span class="number">-1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>((sum%<span class="number">11</span>==<span class="number">10</span> &amp;&amp; s[N<span class="number">-1</span>] == <span class="string">'X'</span>)|| sum%<span class="number">11</span> == (s[N<span class="number">-1</span>]-<span class="string">'0'</span>))&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Right"</span>);</span><br><span class="line">	&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N<span class="number">-1</span>;i++)&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%c"</span>,s[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		sum%<span class="number">11</span>==<span class="number">10</span>?<span class="built_in">printf</span>(<span class="string">"X"</span>):<span class="built_in">printf</span>(<span class="string">"%d"</span>,sum%<span class="number">11</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="声明：菜鸟拙见，大神勿喷"><a href="#声明：菜鸟拙见，大神勿喷" class="headerlink" title="(声明：菜鸟拙见，大神勿喷)"></a><font color="red" size="4" face="宋体">(声明：菜鸟拙见，大神勿喷)</font></h2><p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/df46e976.html">https://gongjintao.com/post/df46e976.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
+<p>假设输入序列是如下一个我们想要翻译的句子：</p>
+<p><span style="backgroundcolor:gray;color:red">”<code>The animal didn&#39;t cross the street because it was too tired</code>”</span></p>
+<p>我们在计算 “it” 时，self-attention 可以使之与 “animal”相关联。</p>
+<p><strong>Self-Attention计算过程详解</strong>：</p>
+<ol>
+<li><p>从每个输入向量中(也就是每个单词的嵌入向量)创建三个向量$q,k,v$；这三个向量分别是用三个矩阵与 embedding 相乘所得到的。<strong>这三个向量的维度要比 embedding vector 的维度小，是64维；而 embedding vector 和 encoder 的输入和输出都是512 维。</strong></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdkyi5xx3rj30wu0l4q4c.jpg" style="zoom:50%;"></p>
+</li>
+<li><p>根据当前单词对输入句子的每个单词评分，这个评分决定了当我们对句子中某个单词进行编码时，需要将多少注意力放到句子的其他部分。计算方式：将每个单词 $q$ 和 $k$ 分别做点积。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdkzbwfjckj30rd0dwjs8.jpg"></p>
+</li>
+<li><p>将得分除以 8 ，即 $\sqrt{64}$ ，也就是 $\sqrt{d_k}$ 。这可以使得梯度更加稳定。</p>
+</li>
+<li><p>然后再用 softmax 操作将其转换成概率。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl039rspbj30rz0iymyr.jpg" style="zoom:50%;"></p>
+</li>
+<li><p>将每个 $v$ 与 softmax score 相乘，这可以保持我们需要关注的单词的完整，并且去除无关的词。</p>
+</li>
+<li><p>将加权的 $v$ 值求和。这就产生了 self-attention 层在该位置的输出。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl039rspbj30rz0iymyr.jpg" style="zoom: 50%;"></p>
+</li>
+</ol>
+<p><strong>矩阵表达：</strong></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl0lwb8vjj30jd0l8mxl.jpg" style="zoom:50%;"></p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl0lw2u33j30ji09imxe.jpg" style="zoom:50%;"></p>
+<h5 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h5><p>简单的 self-attention 存在的问题：只有一条路径让单词与另一个单词连接。大致结构如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1aj4ej5j30bb0emmyk.jpg" style="zoom:50%;"></p>
+<p><strong>Multi-Head Attention 计算过程详解</strong>：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1fgp9dwj30m50dw3z4.jpg" style="zoom: 80%;"></p>
+<p>如果我们如上图做同样的 attention 计算，只是8次不同的加权矩阵，便可得到 8个不同的 Z 矩阵。</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1kuk5jdj30ms0bejs8.jpg" style="zoom: 80%;"></p>
+<p>但这里有 8 个矩阵，而前馈神经网络的输入是一个，所以需要将这 8 个矩阵连接起来。具体操作：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl1yewagvj30wm0hjdhl.jpg" alt></p>
+<ol>
+<li>$Concate(Z_0,Z_1,\dots,Z_7)$</li>
+<li>用 $W^O$ 与 $Concate(Z_0,Z_1,\dots,Z_7)$ 相乘得到 $Z$</li>
+</ol>
+<p>总的运算流程如下：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl2927n4nj30xz0k4n0p.jpg" alt></p>
+<p><strong>公式表达：</strong></p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\operatorname{MultiHead}(Q, K, V) &\left.=\text { Concat (Z }_{1}, \ldots, \text { Z }_{\mathrm{h}}\right) W^{O} \\
+\text { where Z }_{\mathrm{i}} &=\text { Attention }\left(Q W_{i}^{Q}, K W_{i}^{K}, V W_{i}^{V}\right)
+\end{aligned}</script><h4 id="Positional-Encoding"><a href="#Positional-Encoding" class="headerlink" title="Positional Encoding"></a>Positional Encoding</h4><p>截至目前为止，Transformer 并没有捕捉顺序序列的能力，即无论句子的顺序是什么，Transformer 得到的结果都是类似的。为了解决这一问题，论文在编码词向量时引入了位置编码(Positional Encoding)的特征。具体操作如下图所示：</p>
+<p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdl999t9tcj313y0m1q53.jpg" alt="undefined"></p>
+<p>具体计算公式是：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+P E_{(p o s, 2 i)} &=\sin \left(\text {pos} / 10000^{2 i / d_{\text {model }}}\right) \\
+P E_{(p o s, 2 i+1)} &=\cos \left(\text {pos} / 10000^{2 i / d_{\text {model }}}\right)
+\end{aligned}</script><p>其中 $pos$ 是单词的位置，$i$ 是维度。</p>
+<h2 id="Bert"><a href="#Bert" class="headerlink" title="Bert"></a>Bert</h2><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ol>
+<li>CS224N 2019</li>
+<li><a href="https://jalammar.github.io/illustrated-transformer/" target="_blank" rel="noopener">https://jalammar.github.io/illustrated-transformer/</a></li>
+</ol>
+<p><strong>本文作者</strong>：Gong Jintao<br><strong>本文地址</strong>： <a href="https://gongjintao.com/post/undefined.html">https://gongjintao.com/post/undefined.html</a> <br><strong>版权声明</strong>：本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" target="_blank" rel="noopener">CC BY-NC-SA 3.0 CN</a> 许可协议。转载请注明出处！</p>
 
       
     </div>
@@ -531,7 +696,7 @@
         
         <div class="post-tags">
           
-            <a href="/tags/C-C/" rel="tag"><i class="fa fa-tag"></i> C/C++</a>
+            <a href="/tags/NLP/" rel="tag"><i class="fa fa-tag"></i> NLP</a>
           
         </div>
       
@@ -544,8 +709,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/a0be2792.html" rel="next" title="CCF试题库201312-1————出现次数最多的数">
-                <i class="fa fa-chevron-left"></i> CCF试题库201312-1————出现次数最多的数
+              <a href="/post/4b37d30a.html" rel="next" title="Attention Based Model">
+                <i class="fa fa-chevron-left"></i> Attention Based Model
               </a>
             
           </div>
@@ -553,10 +718,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/fa3686ed.html" rel="prev" title="CCF认证题库201612-3————权限查询">
-                CCF认证题库201612-3————权限查询 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -734,7 +895,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#问题描述"><span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式"><span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式"><span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入"><span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出"><span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输入-1"><span class="nav-text">样例输入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#样例输出-1"><span class="nav-text">样例输出</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码示例"><span class="nav-text">代码示例</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#声明：菜鸟拙见，大神勿喷"><span class="nav-text">(声明：菜鸟拙见，大神勿喷)</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-text">ELMo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#双向语言模型-biLM"><span class="nav-text">双向语言模型(biLM)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预训练过程："><span class="nav-text">预训练过程：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ELMo：不同层的权值"><span class="nav-text">ELMo：不同层的权值</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT"><span class="nav-text">GPT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动机"><span class="nav-text">动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder"><span class="nav-text">Decoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attention"><span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dot-Product-Attention"><span class="nav-text">Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Scaled-Dot-Product-Attention"><span class="nav-text">Scaled Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Self-Attention"><span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Multi-Head-Attention"><span class="nav-text">Multi-Head Attention</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Positional-Encoding"><span class="nav-text">Positional Encoding</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bert"><span class="nav-text">Bert</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></div>
             
 
           </div>
