@@ -133,7 +133,7 @@
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1ge78wmbmf8j30qx0bbgqd.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1ge79gqzhxgj312w0wvwk8.jpg">
 <meta property="og:image" content="http://ww1.sinaimg.cn/large/005XIOOugy1ge6y9isnocj30rf09iwg3.jpg">
-<meta property="og:updated_time" content="2020-04-27T03:11:20.229Z">
+<meta property="og:updated_time" content="2020-05-24T08:23:26.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Transformer Based">
 <meta name="twitter:description" content="目前为止，我们已经可以对单词有基本的表示，如 Word2vec，Glove，fastText；但是这些方法都存在两个问题：  无论单词出现在何种上下文环境中，对这些单词都只有一种表示 可能需要非常细微的词义消歧   我们对一个单词只有一个表示，但是单词有不同的方面，包括语义、句法行为和语域/内涵  ELMo主要思想：想得到在上下文中词的含义，但是标准的学习任务 RNN 只能在已标记小数据集上进行">
@@ -439,7 +439,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-04-27 11:11:20" itemprop="dateModified" datetime="2020-04-27T11:11:20+08:00">2020-04-27</time>
+                <time title="修改时间：2020-05-24 16:23:26" itemprop="dateModified" datetime="2020-05-24T16:23:26+08:00">2020-05-24</time>
               </span>
             
           
@@ -515,7 +515,7 @@
 <p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxnnpnnxj30k30l9dj5.jpg" alt="pre-ELMo"></p>
 <p><img src="http://ww1.sinaimg.cn/large/005XIOOugy1gdcxr79d5yj30ya0kxq7z.jpg" alt="tagLM"></p>
 <p>ELMo(Embeddings from Language Models) 不同于一般的词嵌入，其单词表示是整个输入句子的函数。</p>
-<h4 id="双向语言模型-biLM"><a href="#双向语言模型-biLM" class="headerlink" title="双向语言模型(biLM)"></a>双向语言模型(biLM)</h4><p>给定含 $N$ 个token的序列：$(t_1,t_2,\dots,t_N)$ </p>
+<h3 id="双向语言模型-biLM"><a href="#双向语言模型-biLM" class="headerlink" title="双向语言模型(biLM)"></a>双向语言模型(biLM)</h3><p>给定含 $N$ 个token的序列：$(t_1,t_2,\dots,t_N)$ </p>
 <p>前向语言模型通过给定前面的k-1个位置的token序列计算第k个token的出现的概率:</p>
 <script type="math/tex; mode=display">
 p\left(t_{1}, t_{2}, \ldots, t_{N}\right)=\prod_{k=1}^{N} p\left(t_{k} | t_{1}, t_{2}, \ldots, t_{k-1}\right)</script><p>后向语言模型类似于前向，区别在于将序列反转：</p>
@@ -538,7 +538,7 @@ R_{k} &=\left\{\mathbf{x}_{k}^{L M}, \overrightarrow{\mathbf{h}}_{k, j}^{L M}, \
 E\left(R_{k}\right)=\mathbf{h}_{k, L}^{L M}</script><p>更通用的做法是通过一些参数来联合所有层的信息:</p>
 <script type="math/tex; mode=display">
 \mathbf{E} \mathbf{L} \mathbf{M} \mathbf{o}_{k}^{\text {task}}=E\left(R_{k} ; \Theta^{\text {task}}\right)=\gamma^{\text {task}} \sum_{j=0}^{L} s_{j}^{\text {task}} \mathbf{h}_{k, j}^{L M}</script><p>上式中 $s^{task}$ 是 softmax 出来的结果，$\gamma$ 是 scalar 参数，可以让模型放缩整个 ELMo 向量。</p>
-<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><ul>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><ul>
 <li><p>最简版本</p>
 <p>先固定一个权重, 构成一个 ELMO 向量 $ELMO^{task}$ , 然后联结最初始词向量(也就是通过字符卷积获得的向量) $x_k$ 得到 $\left[x_{k} ; E L M O_{k}^{\text {task}}\right]$ 然后将这个向量输入到任务的 RNN 模型中去. 然后在训练中一同训练权重因子。</p>
 </li>
@@ -549,7 +549,7 @@ E\left(R_{k}\right)=\mathbf{h}_{k, L}^{L M}</script><p>更通用的做法是通�
 <p>可以在 ELMo 模型中加入 dropout, 以及采用 L2 loss的方法来提升模型。并且, 这里的 L2 项的系数 $\lambda$ 越大, 越有取各层平均值的意思。越小, 越可以发挥各个层之间的不同带来的效果. 但是并不是说, 越小越好。</p>
 </li>
 </ul>
-<h4 id="预训练过程"><a href="#预训练过程" class="headerlink" title="预训练过程"></a>预训练过程</h4><ol>
+<h3 id="预训练过程"><a href="#预训练过程" class="headerlink" title="预训练过程"></a>预训练过程</h3><ol>
 <li>使用 2 层 biLSTM</li>
 <li>使用 character CNN 来初始化词表示 <ul>
 <li>2048 char n-gram filters and 2 highway layers, 512 dim projection</li>
@@ -557,7 +557,7 @@ E\left(R_{k}\right)=\mathbf{h}_{k, L}^{L M}</script><p>更通用的做法是通�
 </li>
 <li>使用 4096 维隐藏层状态和 512 的映射维度</li>
 <li><p>使用 residual 联结 (残差连接)</p>
-<h4 id="ELMo：不同层的权值"><a href="#ELMo：不同层的权值" class="headerlink" title="ELMo：不同层的权值"></a>ELMo：不同层的权值</h4></li>
+<h3 id="ELMo：不同层的权值"><a href="#ELMo：不同层的权值" class="headerlink" title="ELMo：不同层的权值"></a>ELMo：不同层的权值</h3></li>
 <li><p>较低层更适合较低层次的语法</p>
 <ul>
 <li>词性标注，句法依赖，命名实体识别</li>
@@ -942,7 +942,7 @@ P E_{(p o s, 2 i+1)} &=\cos \left(\text {pos} / 10000^{2 i / d_{\text {model }}}
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-text">ELMo</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#双向语言模型-biLM"><span class="nav-text">双向语言模型(biLM)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#预训练过程"><span class="nav-text">预训练过程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ELMo：不同层的权值"><span class="nav-text">ELMo：不同层的权值</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动机"><span class="nav-text">动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder"><span class="nav-text">Decoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attention"><span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dot-Product-Attention"><span class="nav-text">Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Scaled-Dot-Product-Attention"><span class="nav-text">Scaled Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Self-Attention"><span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Multi-Head-Attention"><span class="nav-text">Multi-Head Attention</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Positional-Encoding"><span class="nav-text">Positional Encoding</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bert"><span class="nav-text">Bert</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedding-layers"><span class="nav-text">Embedding layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoder-1"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ELMo"><span class="nav-text">ELMo</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#双向语言模型-biLM"><span class="nav-text">双向语言模型(biLM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预训练过程"><span class="nav-text">预训练过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ELMo：不同层的权值"><span class="nav-text">ELMo：不同层的权值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transformer"><span class="nav-text">Transformer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#动机"><span class="nav-text">动机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#概览"><span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#详解"><span class="nav-text">详解</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Encoder"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Decoder"><span class="nav-text">Decoder</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Attention"><span class="nav-text">Attention</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Dot-Product-Attention"><span class="nav-text">Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Scaled-Dot-Product-Attention"><span class="nav-text">Scaled Dot-Product Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Self-Attention"><span class="nav-text">Self-Attention</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Multi-Head-Attention"><span class="nav-text">Multi-Head Attention</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Positional-Encoding"><span class="nav-text">Positional Encoding</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bert"><span class="nav-text">Bert</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedding-layers"><span class="nav-text">Embedding layers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoder-1"><span class="nav-text">Encoder</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output"><span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
